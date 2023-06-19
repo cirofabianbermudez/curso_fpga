@@ -1,6 +1,6 @@
 clear; close all; clc;
 
-% Definir formato
+% Definir formato A(a,b)
 nbits = 32;
 b = 21;
 a = nbits - b - 1;
@@ -18,7 +18,7 @@ names = ["sigma", "beta", "rho", "h", "x0", "y0", "z0"];
 for i = 1:numel(values)
     temp1 = float2fixed(nbits,b,values(i));
     temp2 = fixed2float(nbits,b,temp1);
-    fprintf("assign %5s_o = 32'b%s; // %10.7f\n",names(i),temp1,temp2);
+    fprintf("assign %5s_o = 32'b%s; // %30.25f\n",names(i),temp1,temp2);
 end
 
 % Conversion de flotante a punto fijo con truncamiento
