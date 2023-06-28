@@ -1,10 +1,9 @@
-//Aurhor: Guadalupe Alonso
+//Author: Guadalupe Alonso
 //Name: LUT2_1.v
 //
 //Another second option of Look Up Table
 
 module LUT2_1(
-
     input A,
     input B,
     input C,
