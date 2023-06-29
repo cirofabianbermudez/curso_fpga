@@ -1,4 +1,4 @@
-//Aurhor: Guadalupe Alonso
+//Author: Guadalupe Alonso
 //Name: mux4_1.v
 //
 //Multiplexer 4 inputs 1 output
