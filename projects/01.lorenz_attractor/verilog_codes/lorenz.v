@@ -3,7 +3,7 @@
 //
 // Lorenz oscillator 32 bits A(11,20)
 module lorenz #(
-   parameter Width = 32
+  parameter Width = 32
 ) (             
   input                rst_i,
   input                clk_i,

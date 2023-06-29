@@ -3,7 +3,7 @@
 //
 // Simple multiplexer 2 inputs 1 output
 module mux #(
-   parameter Width = 32
+  parameter Width = 32
 ) (
   input  [Width-1:0] in1_i,
   input  [Width-1:0] in2_i,

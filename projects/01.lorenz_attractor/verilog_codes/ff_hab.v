@@ -3,7 +3,7 @@
 //
 // Simple flip-flop with asynchronous Reset and Enable
 module ff_hab #(
-   parameter Width = 32
+  parameter Width = 32
 ) (
   input                  rst_i,
   input                  clk_i,

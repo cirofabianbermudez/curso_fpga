@@ -13,8 +13,10 @@ module mult #(
   input  signed [Width-1:0] b_i,
   output signed [Width-1:0] mult_o
 );
+
   wire [Width*2-1:0] temp;
 
   assign temp = a_i * b_i; 
   assign mult_o = temp[52:21];		
+
 endmodule

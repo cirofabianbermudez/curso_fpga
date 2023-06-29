@@ -3,7 +3,7 @@
 //
 // Simple signed subtracter
 module sub #(
-   parameter Width = 32
+  parameter Width = 32
 ) (
   input  signed [Width-1:0] a_i,
   input  signed [Width-1:0] b_i,
@@ -11,4 +11,5 @@ module sub #(
 );
 
   assign sub_o = a_i - b_i;		
+
 endmodule

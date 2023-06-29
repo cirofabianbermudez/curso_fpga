@@ -6,7 +6,7 @@
 `timescale 1ns / 100ps	  
 
 module lorenz_tb #(
-	parameter Width = 32 
+  parameter Width = 32 
 ) ();
 	// Definición de señales de entrada y salida
   reg rst;
@@ -41,10 +41,10 @@ module lorenz_tb #(
   int i;
   localparam SF = 2.0**-21.0;
   
-	// Estímulo de las entradas
-	initial begin
-    write_data = $fopen("tb_output.txt");
-		#50;
+  // Estímulo de las entradas
+  initial begin
+    write_data = $fopen("tb_output.txt","w");
+	#50;
     
     // start oscillator
     start = 1;
