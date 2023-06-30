@@ -1,22 +1,22 @@
-//Author: Guadalupe Alonso
-//Name: LUT3.v
+// Author: Guadalupe Alonso
+// Name: lut3.v
 //
-//Third option of Look Up Table
+// Description: Third option of Look Up Table
 
-module LUT3(
-    input A,
-    input B,
-    input C,
-    input D,
-    output reg x
+module lut3(
+  input A,
+  input B,
+  input C,
+  input D,
+  output reg X
 );
 
-    always @(A,B,C,D)
-    begin
-        if((A & ~B & ~C & ~D) | (A & B & C & ~D) | (A & B & ~C & D) | (A & B & C & D))
-            x=1;
-        else
-            x=0;
+  always @(A,B,C,D) begin
+    if ( (A & ~B & ~C & ~D) | (A & B & C & ~D) | (A & B & ~C & D) | (A & B & C & D) ) begin
+      X = 1;
+    end else begin
+      X = 0;
     end
+  end
 
 endmodule
