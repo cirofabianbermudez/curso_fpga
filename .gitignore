@@ -1,2 +1,4 @@
 ## Core latex/pdflatex auxiliary files:
 *.pdf
+*.vcd
+*.vvp
