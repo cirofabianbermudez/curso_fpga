@@ -1,4 +1,0 @@
-Selector = 00, Salida =                                z
-Selector = 01, Salida =                                z
-Selector = 10, Salida =                                z
-Selector = 11, Salida =                                z
