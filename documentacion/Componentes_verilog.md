@@ -2,7 +2,7 @@
 
 _¿Qué es?:_
 Dispositivo que transmite datos de varias entradas a una única salida. Se trata de un circuito combinacional que tiene entradas de control, las cuales pueden seleccionar solamente una de las entradas de datos a la que le permiten transmitir desde la entrada seleccionada hacia la salida. 
-El funcionamiento de estos dispositivos está basado en circuitos con **compuertas lógicas** que se conectan de manera tal que todas las entradas salen por la misma salida, pero para ellos debe seleccionarse la entrada que enviará los datos hacia la salida.
+El funcionamiento de estos dispositivos está basado en circuitos con **compuertas lógicas** que se conectan de tal manera que todas las entradas salen por la misma salida, pero para ellos debe seleccionarse la entrada que enviará los datos hacia la salida.
 
 ### 1.1 Multiplexor 2 a 1:
 
@@ -19,11 +19,11 @@ El funcionamiento de estos dispositivos está basado en circuitos con **compuer
 |$I_1$|$0$|
 |$I_2$|$1$|
 
-De acuerdo a lo anterior, entendemos que el selector de nuestro multiplexor 2 a 1, únicamente tiene opción de esocger entre la salida $I_1$ o $I_2$ dependiendo si esté se encuentra con un $1$ o $0$ lógico. 
+De acuerdo a lo anterior, entendemos que el selector de un multiplexor 2 a 1, únicamente tiene como opción, esocger entre la salida $I_1$ o $I_2$ dependiendo si esté se encuentra con un $1$ o $0$ lógico. 
 
-Por otro lado, la cantidad de bits de cada una de nuestras entradas es irrelevante. Únicamente se debe de considerar que la misma cantidad de bits que entran, son los que salen. 
+Por otro lado, la cantidad de bits de cada una de las entradas es irrelevante. Únicamente se debe de considerar que la misma cantidad de bits que entran, son los que salen. 
 
-## Fórmulas importantes:
+## Fórmulas importantes a considerar:
 $$
 \begin{gather*}
 2^{num\;bits}-1=Máximo\;número\;para\;contar \\
@@ -39,7 +39,7 @@ $$
 |$2^5$|$32$|
 |$2^6$|$64$|
 
-+ Para saber el número máximo al que podemos contar. restamos -1 al número de combinaciones.
++ Para saber el número máximo al que podemos contar, restamos -1 al número de combinaciones.
 + El número de entradas del mux nos dice el número de combinaciones.
 
 ## Fórmula condicional:
