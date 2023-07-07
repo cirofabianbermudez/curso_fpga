@@ -29,10 +29,6 @@ Por otro para entender mejor una tabla de verdad podemos desarrollarla de la sig
 |1|1|0|1|1|
 
 Donde, entendemos que las columnas $A$ y $B$ representan las entradas, la columna $A'$ representa la negación de la entrada $A$, la columna $A*B$ representa la operación _AND_ entre $A$ y $B$; y la última columna, $Q=A*B+A'$, muestra la salida resultante para cada combinación de entrada. 
-En la tabla de verdad, podemos observar que la salida Q será "1" cuando cualquiera de las siguientes condiciones se cumpla:
-- A y B son ambos "0" y A' es "1".
-- A es "1" y B puede ser cualquier valor.
-En cualquier otro caso, la salida Q será "0".
 
 ### _Implementación en Verilog:_
 
@@ -182,33 +178,12 @@ module lut_tb();
 		$dumpfile("lut_tb.vcd"); //guarda lo que compila
 		$dumpvars(0,lut_tb); //selecciona variable que salen
 		
-		//b - binario, 4 - 4 bits, 0 - asigna ceros a los 4 bits
-		//{A,B,C,D} = 4'd0; #20;
-		//{A,B,C,D} = 4'd1; #20;
-		//{A,B,C,D} = 4'd2; #20;
-		//{A,B,C,D} = 4'd3; #20;
-		//{A,B,C,D} = 4'd4; #20;
-		//{A,B,C,D} = 4'd5; #20;
-		//{A,B,C,D} = 4'd6; #20;
-		//{A,B,C,D} = 4'd7; #20;
-		//{A,B,C,D} = 4'd8; #20;
-		//{A,B,C,D} = 4'd9; #20;
-		//{A,B,C,D} = 4'd10; #20;
-		//{A,B,C,D} = 4'd11; #20;
-		//{A,B,C,D} = 4'd12; #20;
-		//{A,B,C,D} = 4'd13; #20;
-		//{A,B,C,D} = 4'd14; #20;
-		//{A,B,C,D} = 4'd15; #20;
-		
 		for (i = 0; i < 16; i++) begin
 		{A,B,C,D} = i; #20;
 		$fdisplay(write_data,"Entradas = %b, X = %7b", i, X);
 		end
 		
 		$fclose(write_data);
-		// A = 0; B = 0; C = 0; D = 0;
-		// #20;
-		
 		$display("Test completed");
 	end
 
