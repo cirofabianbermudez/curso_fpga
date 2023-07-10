@@ -1,0 +1,161 @@
+{
+  "main": {
+    "id": "4e5dde8e9c84265f",
+    "type": "split",
+    "children": [
+      {
+        "id": "07d1750d50ab982f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53c273152511c8b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02_decodificador.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f07589a63ecc2384",
+    "type": "split",
+    "children": [
+      {
+        "id": "5b319542534808aa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9e3b92215ce5c900",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2b7729a40127ae64",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0da2fdca8123c12e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "458e8e76e4fbc2bd",
+    "type": "split",
+    "children": [
+      {
+        "id": "3d3d020810ed7951",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1995de4bee56be0f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "02_decodificador.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a476e1ec39cf46d6",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "02_decodificador.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1b6dee975d73a5f6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "ea19258d3e4381a9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "02_decodificador.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir quick switcher": false,
+      "graph:Abrir vista de gráfico": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "9e3b92215ce5c900",
+  "lastOpenFiles": [
+    "03_sumador.md",
+    "02_decodificador.md",
+    "04_restador.md",
+    "01_multiplexor.md",
+    "05_multiplicador.md",
+    "index.md",
+    "archivo_sh.md",
+    "about.md",
+    "00_look_up_tables.md"
+  ]
+}

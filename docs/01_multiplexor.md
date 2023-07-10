@@ -4,7 +4,7 @@
 
 Es un circuito lógico combinacional que permite seleccionar uno de varios canales de entrada y dirigirlo hacia una única salida. Actúa como un selector de datos que permite la transmisión de una señal de entrada específica a través de una sola línea de salida, en función de señales de control.
 
-##### _Multiplexor 2 a 1:_
+## _Multiplexor 2 a 1_
 Un multiplexor 2 a 1 consta de dos entradas, una entrada de selección y una salida, como se muestra en la Figura 2.0. Dependiendo de la señal de selección, la salida se conecta a cualquiera de las entradas. Dado que hay dos señales de entrada, sólo son posibles dos formas de conectar las entradas a las salidas, por lo que se necesita un selector para realizar estas operaciones.
 
 ![Mux2_1](https://upload.wikimedia.org/wikipedia/commons/3/39/Multiplexer_2-to-1.svg)
@@ -14,7 +14,7 @@ _Figura 2.0: Modelo de un multiplexor 2 a 1._
 + $Z=O_1$
 + $S_0=SEL$
 
-#### Tabla de verdad para mux 2 a 1:
+### Tabla de verdad
 
 |$O_1$|$SEL$|
 |:-:|:-:|
@@ -24,11 +24,11 @@ _Figura 2.0: Modelo de un multiplexor 2 a 1._
 De acuerdo a lo anterior, entendemos que el selector de un multiplexor 2 a 1, únicamente tiene como opción, esocger entre la salida $I_1$ o $I_2$ dependiendo si esté se encuentra con un $1$ o $0$ lógico. 
 Por otro lado, la cantidad de bits de cada una de las entradas es irrelevante. Únicamente se debe de considerar que la misma cantidad de bits que entran, son los que salen. 
 
-### _Implementación en Verilog:_
+### _Implementación en Verilog_
 
 Para ejemplificar el diseño y simulación de un multiplexor 2 a 1 en lenguaje de programación Verilog, desarrollaremos la siguiente propuesta de código:
 
-#### Propuesta de diseño de multiplexor 2 a 1: 
+#### Propuesta
 ```Verilog
 module mux #(
 parameter Width = 32
@@ -45,7 +45,7 @@ endmodule
 ```
 
 
-##### _Multiplexor 4 a 1:_
+## _Multiplexor 4 a 1_
 Un multiplexor 4 a 1 toma cuatro entradas y dirige una única entrada seleccionada a la salida, como se muestra en la Figura 2.1. La selección de la entrada se controla mediante entradas de selección. 
 
 ![](https://allaboutfpga.com/wp-content/uploads/2016/01/multiplexer-4-to-1.png)
@@ -78,11 +78,12 @@ Al tener 4 entradas de datos tendremos 2 entradas de selección, lo que signific
 |$2$|$1$|$0$|$I_3$|
 |$3$|$1$|$1$|$I_1$|
 
-### _Implementación en Verilog:_
+### _Implementación en Verilog_
 
 Para ejemplificar el diseño y simulación de un multiplexor 4 a 1 en lenguaje de programación Verilog, desarrollaremos diferentes propuesta de código:
 
-#### Primera propuesta de diseño para un multiplexor 4 a 1: Sintaxis condicional
+#### Primera propuesta 
+_Sintaxis condicional:_
 
 ```Verilog
 module mux1 #(
@@ -101,7 +102,8 @@ module mux1 #(
 endmodule
 ```
 
-#### Segunda propuesta: Sintaxis if-else
+#### Segunda propuesta
+_Sintaxis if-else:_
 
 ```Verilog
 module mux2 #(
@@ -133,7 +135,8 @@ module mux2 #(
 endmodule
 ```
 
-#### Tercera propuesta: Sintaxis case 
+#### Tercera propuesta
+_Sintaxis case: 
 
 ```Verilog
 module mux3 #(
@@ -159,7 +162,8 @@ endmodule
 ```
 
 
-#### TestBench para simulación en gtkwave:
+#### TestBench 
+_Simulación en gtkwave_
 
 ```verilog
 `timescale 1ns / 100 ps
@@ -217,3 +221,6 @@ module mux4_1_tb #(
 
 endmodule;
 ```
+
+## Referencias
++ _Circuitos combinacionales. Introducción. | ELEC02.- Circuitos combinacionales MSI._ (s/f). Recuperado el 10 de julio de 2023, de [https://ikastaroak.ulhi.net/edu/es/IEA/ELEC/ELEC02/es_IEA_ELEC02_Contenidos/website_5_circuitos_combinacionales_introduccin.html](https://ikastaroak.ulhi.net/edu/es/IEA/ELEC/ELEC02/es_IEA_ELEC02_Contenidos/website_5_circuitos_combinacionales_introduccin.html)
