@@ -1,10 +1,10 @@
 # 00. Look Up Tables
 
-##¿Qué es una tabla de verdad?
+## ¿Qué es una tabla de verdad?
 
 Se describe como una funcionalidad que el diseñador digital puede programar para conocer la relación que existe entre entradas y salidas de un circuito lógico por medio de su función booleana. La tabla enumera todas las combinaciones posibles y muestra el resultado lógico correspondiente para cada combinación.
 
-## Ejemplo:
+## Ejemplo
 Tomando como base el circuito lógico descrito en la Figura 1.0:
 ![](https://nandland.com/articles/images/boolean-algebra-equation-logic-gates2.png)
 _Figura 1.0: Ejemplo de circuito lógico_.
@@ -33,7 +33,7 @@ Por otro para entender mejor una tabla de verdad podemos desarrollarla de la sig
 
 Donde, entendemos que las columnas $A$ y $B$ representan las entradas, la columna $A'$ representa la negación de la entrada $A$, la columna $A*B$ representa la operación _AND_ entre $A$ y $B$; y la última columna, $Q=A*B+A'$, muestra la salida resultante para cada combinación de entrada. 
 
-### _Implementación en Verilog:_
+## _Implementación en Verilog_
 
 Para ejemplificar el diseño y simulación de una tabla de verdad en lenguaje de programación Verilog, utilizaremos el ejemplo descrito en la Figura 1.2, y desarrollaremos diferentes módelos de diseño para una única tabla de verdad. 
 
@@ -46,7 +46,8 @@ x=A'BC'+ABC'+BC'D
 $$
 Desarrollaremos dos propuestas de diseño que nos permiten simular directamente la ecuación booleana obtenida o describiendo las diferentes conexiones que se observan en el diagrama, sin necesidad de tener una tabla de verdad que la describa. 
 
-#### Primera propuesta de diseño para una LUT: Asignación de ecuación booleana:
+### Primera propuesta
+_Asignación de ecuación booleana:_
 
 ```verilog title="lut1.v" linenums="1" 
 module lut1(
@@ -62,7 +63,8 @@ module lut1(
 endmodule
 ```
 
-#### Segunda propuesta: Sintaxis condicional describiendo conexiones en el diagrama
+### Segunda propuesta
+_Sintaxis condicional describiendo conexiones en el diagrama:_
 
 ```verilog
 module lut2(
@@ -125,7 +127,8 @@ Considerando que los casos que nos importan es cuando la salida $x$ se encuentra
 
 Por lo tanto, tendríamos la siguiente sintaxis en Verilog:
 
-#### Tercera propuesta: Sentencia if-else con base a una tabla de verdad dada
+### Tercera propuesta
+_Sentencia if-else con base a una tabla de verdad dada:_
 
 ```verilog
 	module lut3(
@@ -149,7 +152,8 @@ endmodule
 
 Para observar el correcto funcionamiento de nuestras propuestas de LUTs utilizaremos el programa _gtkwave_ para simular la respuesta de un TestBench que describa los parametros necesarios de funcionamiento de nuestras LUTs, como se observa en el siguiente bloque de código:
 
-#### TestBench para simulación en gtkwave:
+### TestBench 
+_Simulación en gtkwave:_
 
 ```verilog
 `timescale 1ns / 100 ps
@@ -195,6 +199,4 @@ endmodule;
 
 ## Referencias
 
-- Enlaces
-- Enlaces
-- Enlaces
+- Russell. (2022, junio 9). Tutorial—Boolean Algebra using Look-Up Tables (LUT). _Nandland_. [https://nandland.com/lesson-4-what-is-a-look-up-table-lut/](https://nandland.com/lesson-4-what-is-a-look-up-table-lut/)

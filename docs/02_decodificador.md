@@ -1,6 +1,6 @@
 # 02. Decodificador
 
-### _¿Qué es un **decodificador**?:_
+## _¿Qué es un **decodificador**?_
 
 Un decodificador es un circuito digital que convierte una combinación de señales de entrada en una señal de salida específica. 
 Su función principal es descomponer y decodificar una entrada codificada; y activar una única salida correspondiente a la combinación de entrada recibida.
@@ -8,14 +8,15 @@ Convierte las entradas de datos en $n$ bits en las $2^n$ salidas codificadas.
 El decodificador generalmente coloca la lógica $1$ n una de sus salidas para crear el código exacto. Para una combinación diferente de entradas binarias de $n$ bits, produce una salida codificada de $2^n$. La salida codificada se produce en función de cada entrada binaria.
 
 ![](https://www.electrically4u.com/wp-content/uploads/2020/09/decoder.png?ezimgfmt=ng:webp/ngcb4)
+_Figura 1.0. Modelo básico de un decodificador de n entradas._
 
 
-##### _Decodificador para display de 7 segmentos:_
+### _Decodificador para display de 7 segmentos_
 Los decodificadores de BCD (_Decimal Codificado en Binario_) a 7 segmentos son muy utilizados para simplificar el uso de los display de 7 segmentos, comúnmente utilizados para mostrar los dígitos decimales de $0$ a $9$ en una pantalla formada por LED's.
 
 ![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/bcd.png)
 
-#### Tabla de verdad:
+#### Tabla de verdad
 
 |$num$|Entrada $D$|Entrada $C$|Entrada $B$|Entrada $A$|Seg $a$|Seg $b$|Seg $c$|Seg $d$|Seg $e$|Seg $f$|Seg $g$|
 |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -36,11 +37,12 @@ Los decodificadores de BCD (_Decimal Codificado en Binario_) a 7 segmentos son m
 |E|1|1|1|0|1|0|0|1|1|1|1|
 |F|1|1|1|1|1|0|0|0|1|1|1|
 
-### _Implementación en Verilog:_
+#### _Implementación en Verilog_
 
 Para ejemplificar el diseño y simulación de un multiplexor 4 a 1 en lenguaje de programación Verilog, desarrollaremos diferentes propuesta de código:
 
-#### Primera propuesta de diseño para un decodificador para display de 7 segmentos: Sintaxis case
+##### Primera propuesta
+_Sintaxis case:_
 
 ```verilog
 module dec7seg (
@@ -73,7 +75,8 @@ module dec7seg (
 endmodule
 ```
 
-#### Segunda propuesta: Sintaxis if-else
+##### Segunda propuesta
+_Sintaxis if-else:_
 
 ```verilog
 module dec7seg_v2 (
@@ -122,7 +125,8 @@ module dec7seg_v2 (
 endmodule
 ```
 
-#### Tercera propuesta: Sintaxis assign
+##### Tercera propuesta
+_Sintaxis assign:
 
 ```verilog
 module dec7seg_v3 (
@@ -151,7 +155,8 @@ module dec7seg_v3 (
 endmodule
 ```
 
-#### TestBench para simulación en gtkwave:
+##### TestBench
+_Simulación en gtkwave:_
 
 ```verilog
 `timescale 1ns / 100 ps
@@ -190,3 +195,6 @@ module dec7seg_tb();
 
 endmodule;
 ```
+
+## Referencias
++ (2020, septiembre 16). _What is a decoder? Operation, types and applications_. [https://www.electrically4u.com/what-is-a-decoder-operation-types-and-applications/](https://www.electrically4u.com/what-is-a-decoder-operation-types-and-applications/)

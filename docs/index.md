@@ -1,10 +1,11 @@
 # Bienvenido a curso_fpga
 
-
+Esta es una pagina web que les permitirá observar 
 
 ## Introducción
 
-
+hahahahahha
+c:
 
 ## Colaboradores
 
