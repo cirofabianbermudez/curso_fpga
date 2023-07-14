@@ -1,5 +1,17 @@
 clear; close all; clc;
 
+% Definir formato A(a,b)
+nbits = 32;
+b = 24; 
+a = nbits - b - 1;
+
+% Imprimir rango de punto fijo
+l_range = -2^(a);
+r_range = 2^(a) - 2^(-b);
+fprintf("Formato: A(%d,%d) con %d bits\n",a,b,nbits);
+fprintf("a: parte entera\nb: parte fraccionaria\n");
+fprintf("Rango: [%f,%f]\n\n", l_range, r_range);
+
 % Ingresar lista de valores y nombres
 x = 0:15;
 values = atand(2.^(-x));
@@ -25,4 +37,3 @@ function R = fixed2float(nbits,b,value)
     aux = bin2dec(value) - detector*2^(nbits);
     R = aux/(2^b);
 end
-

@@ -1,22 +1,23 @@
 // Author: Guadalupe Alonso
-// Name: lut3.v
+// Name: lut2.v
 //
-// Description: Third option of Look Up Table
+// Description: Second option of Look Up Table
 
-module lut3(
+module lut4(
   input A,
   input B,
   input C,
   input D,
-  output reg X
+  output X
 );
 
-  always @(A,B,C,D) begin
-    if ( (A & ~B & ~C & ~D) | (A & B & C & ~D) | (A & B & ~C & D) | (A & B & C & D) ) begin
-      X = 1;
-    end else begin
-      X = 0;
-    end
-  end
+  // Working with primitives
+  and(c1,~A,B);
+  and(c2,c1,~C);
+  and(c3,A,B);
+  and(c4,c3,~C);
+  and(c5,B,~C);
+  and(c6,c5,D);
+  or(X,c2,c4,c6);
 
 endmodule

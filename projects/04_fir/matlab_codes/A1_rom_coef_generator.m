@@ -1,8 +1,8 @@
 clear; close all; clc;
 
 % Definir formato A(a,b)
-nbits = 32;
-b = 24; 
+nbits = 36;
+b = 28;
 a = nbits - b - 1;
 
 l_range = -2^(a);
@@ -12,14 +12,12 @@ fprintf("a: parte entera\nb: parte fraccionaria\n");
 fprintf("Rango: [%f,%f]\n\n", l_range, r_range);
 
 % Ingresar lista de valores y nombres
-x = 0:15;
-values = atand(2.^(-x));
-% values = [-1.5, -1, 0, 1, 1.5, 2];
+values = [2.5, 3, 3.5, 4, 4.5, 5];
 
 for i = 1:numel(values)
     temp1 = float2fixed(nbits,b,values(i));
     temp2 = fixed2float(nbits,b,temp1);
-    fprintf("%2d : angulo_o = %2d'b%s; //%30.25f\n",i-1,nbits,temp1,temp2);
+    fprintf("%2d: value_a = %2d'b%s; //%7.3f\n",i-1,nbits,temp1,temp2);
 end
 
 % Conversion de flotante a punto fijo con truncamiento
