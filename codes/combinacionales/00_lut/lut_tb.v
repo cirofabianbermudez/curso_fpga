@@ -17,10 +17,10 @@ module lut_tb();
   wire X;
 
   // Instanciacion del modulo
-  lut1 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
+  //lut1 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
   //lut2 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
   //lut3 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
-  //lut4 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
+  lut4 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
 
   // Variables para archivo, iteraciones y tiempo
   integer write_data;

@@ -1,9 +1,9 @@
 // Author: Guadalupe Alonso
-// Name: lut2.v
+// Name: lut3.v
 //
 // Description: Second option of Look Up Table
 
-module lut4(
+module lut3(
   input A,
   input B,
   input C,
