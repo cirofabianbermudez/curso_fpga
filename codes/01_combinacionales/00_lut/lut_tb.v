@@ -30,8 +30,12 @@ module lut_tb();
   initial begin
     // Configuracion de archivos de salida
     write_data = $fopen("lut_tb_output.txt","w");
+    
+    // Salida de simulacion y variables de salida
     $dumpfile("lut_tb.vcd");
     $dumpvars(0,lut_tb);
+    
+    // Configuracion de formato de tiempo
     $timeformat(-9, 2, " ns", 10);
 
     // Simular todas las combinaciones posibles
@@ -49,4 +53,4 @@ module lut_tb();
 
   end
 
-endmodule;
+endmodule

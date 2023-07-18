@@ -1,3 +1,1 @@
 # Acerca de
-
-texto

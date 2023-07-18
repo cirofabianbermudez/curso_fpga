@@ -10,7 +10,7 @@ module mux #(
   input              sel_i,
   output [Width-1:0] mux_o
 );
-
+  
   assign mux_o = sel_i ? in2_i : in1_i;
 
 endmodule

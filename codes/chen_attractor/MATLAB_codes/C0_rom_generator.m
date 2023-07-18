@@ -12,7 +12,7 @@ fprintf("a: parte entera\nb: parte fraccionaria\n");
 fprintf("Rango: [%f,%f]\n\n", l_range, r_range);
 
 % Ingresar lista de valores y nombres
-values = [40, 28, 3, 0.005, -0.1, 0.5, -0.6];
+values = [40, 3, 28, 0.001, -0.1, 0.5, -0.6];
 names = ["a", "b", "c", "h", "x0", "y0", "z0"];
 
 for i = 1:numel(values)

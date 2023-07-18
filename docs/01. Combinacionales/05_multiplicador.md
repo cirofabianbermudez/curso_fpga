@@ -1,8 +1,4 @@
-circuito que multiplica:)
-
-
-
-
+# 05. Multiplicador
 
 ## _Implementación en Verilog_
 Para ejemplificar el diseño y simulación de un multiplicador en lenguaje de programación Verilog, desarrollaremos diferentes propuesta de código en la que se pudiera observar su implementación de la forma más sencilla posible:

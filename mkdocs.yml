@@ -2,6 +2,7 @@ site_name: curso_fpga
 theme:
   name: material
   features:
+    - navigation.expand
     - navigation.top
     - search.suggest
     - search.highlight
@@ -12,16 +13,16 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/brightness-4
         name: Switch to dark mode
       primary: teal
-      accent: purple 
+      accent: orange
     - scheme: slate 
       toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-7
         name: Switch to light mode    
       primary: teal
-      accent: lime
+      accent: orange
 
 extra:
   social:
@@ -38,6 +39,7 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - admonition
+  - md_in_html
   - pymdownx.arithmatex:
       generic: true
   - footnotes
@@ -48,6 +50,16 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 copyright: |
   &copy; 2023 <a href="https://github.com/cirofabianbermudez"  target="_blank" rel="noopener">Ciro Bermudez</a>

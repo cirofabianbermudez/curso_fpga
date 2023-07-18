@@ -1,4 +1,6 @@
-# _¿Qué es un **restador**?:_
+# 04. Restador
+
+## _¿Qué es un **restador**?:_
 
 Dispositivo que resta dos números y produce un resultado, por lo que, un restador digital se ocupa de la resta de dígitos binarios. 
 La regla general se ve expresada en la siguiente tabla de verdad:

@@ -1,4 +1,6 @@
-# _¿Qué es un **sumador**?:_
+# 03. Sumador
+
+## _¿Qué es un **sumador**?:_
 
 Circuito combinacional que realiza la suma de bits, generalmente realizan las operaciones aritméticas en código binario, decimal o BCD. En los casos en los que se esté empleando un complemento a dos para representar números negativos, el sumador se convertirá en un _sumador-substractor_. 
 ![](https://lc.fie.umich.mx/~jfelix/LabDigI/Practicas/P8/Lab_Digital%20I-8_html_5088b93f.png)

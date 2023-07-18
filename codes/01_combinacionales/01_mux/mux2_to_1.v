@@ -1,10 +1,10 @@
 // Author: Ciro Fabian Bermudez Marquez
-// Name: mux2_1.v
+// Name: mux2_to_1.v
 //
 // Description: Simple multiplexer 2 inputs 1 output
 
-module mux2_1 #(
-   parameter Width = 32
+module mux2_to_1 #(
+  parameter Width = 32
 ) (
   input  [Width-1:0] in1_i,
   input  [Width-1:0] in2_i,

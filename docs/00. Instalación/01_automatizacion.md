@@ -1,4 +1,4 @@
-# Verilog con open source
+# 01. Scripts
 
 ## Instalación
 - Instalar un compilador de verilog, [Icarus Verilog](https://bleyer.org/icarus/) es el más popular. 

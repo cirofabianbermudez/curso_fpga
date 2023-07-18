@@ -13,10 +13,28 @@
 - [VerilogGuide](https://verilogguide.readthedocs.io/en/latest/index.html)
 
 ## Revisiones
-- [ ] 00_luts
-  - [ ] `lut1.v`
-  - [ ] `lut2.v`
-  - [ ] `lut3.v`
-  - [ ] `lut4.v`
-  - [ ] `lut_tb.v`
-- [ ] 
+- [x] 00_luts
+  - [x] `lut1.v`
+  - [x] `lut2.v`
+  - [x] `lut3.v`
+  - [x] `lut4.v`
+  - [x] `lut_tb.v`
+
+- [ ] 01_mux
+
+  - [ ] `mux2_1.v`
+  - [ ] `mux4_1.v`
+  - [ ] `mux4_1_v2.v`
+  - [ ] `mux4_1_v3.v`
+  - [ ] `mux256_to_1.v`
+  - [ ] `mux4_1_tb.v`
+
+- [ ] 02_dec7seg
+
+  - [ ] `dec7seg.v`
+  - [ ] `dec7seg_v2.v`
+  - [ ] `dec7seg_v3.v`
+  - [ ] `dec7seg_tb.v`
+
+  
+

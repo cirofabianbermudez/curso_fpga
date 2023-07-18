@@ -1,13 +1,13 @@
 // Author: Guadalupe Alonso Contreras
-// Name: mux4_1_tb.v
+// Name: mux2_to_1_tb.v
 //Test Bench for a Multiplexer: Estimulos combinacionales.
 
 `timescale 1ns / 100 ps
-`include "mux4_1.v"
-`include "mux4_1_v2.v"
-`include "mux4_1_v3.v"
+`include "mux4_to_1.v"
+`include "mux4_to_1_v2.v"
+`include "mux4_to_1_v3.v"
 
-module mux4_1_tb #(
+module mux4_to_1_tb #(
   parameter n = 4
 ) ();
 

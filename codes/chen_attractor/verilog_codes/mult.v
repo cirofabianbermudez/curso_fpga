@@ -7,7 +7,7 @@
 //						  right_lim	= bp - b = 42 - 21 = 21
 
 module mult #(
-   parameter Width = 32
+  parameter Width = 32
 ) (
   input  signed [Width-1:0] a_i,
   input  signed [Width-1:0] b_i,

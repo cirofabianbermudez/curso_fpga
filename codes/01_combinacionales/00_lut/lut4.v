@@ -12,7 +12,7 @@ module lut4(
 );
 
   always @(A,B,C,D) begin
-    if ( (A & ~B & ~C & ~D) | (A & B & C & ~D) | (A & B & ~C & D) | (A & B & C & D) ) begin
+    if ( (~A & ~B & ~C & ~D) | (A & B & C & D) | (A & ~B & ~C & D) ) begin
       X = 1;
     end else begin
       X = 0;
