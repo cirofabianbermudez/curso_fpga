@@ -9,7 +9,7 @@ Existen diversas maneras para trabajar con Verilog, entre las más populares se 
 - [Intel Quartus Prime Lite Edition](https://www.intel.la/content/www/xl/es/products/details/fpga/development-tools/quartus-prime/resource.html)
 - [Icarus Verilog](https://bleyer.org/icarus/)
 
-Sin embargo, a pesar de que todas estas opciones son gratuitas, no están disponibles en todos los sistemas operativos, en la siguiente tabla se muestran las diferentes compatibilidades:
+sin embargo, a pesar de que todas estas opciones son gratuitas, no están disponibles en todos los sistemas operativos, en la siguiente tabla se muestran las diferentes compatibilidades:
 
 
 <figure markdown>
@@ -29,25 +29,17 @@ por lo anterior es buena idea comenzar a aprender Verilog utilizando [Icarus Ver
 
 La ventaja de instalar [Vivado ML Edition](https://www.xilinx.com/products/design-tools/vivado/vivado-ml.html) o [Intel Quartus Prime Lite Edition](https://www.intel.la/content/www/xl/es/products/details/fpga/development-tools/quartus-prime/resource.html) es que cuentan con todas las herramientas necesarias para llevar el flujo de diseño en FPGA.
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 ``` mermaid
-graph LR
-  A[Especificaciones] --> B{Error?};
-  B -->|Yes| C[Hmm...];
-  C --> D[Debug];
-  D --> B;
-  B ---->|No| E[Yay!];
+flowchart LR
+  A[Especificaciones] ==> B[HDL];
+  B ==> C[Síntesis];
+  C ==> D[Place and Route];
+  D ==> E[Verificación del circuito];
+  B -.-> F[Simulación];
+  D -.-> G[Análisis de tiempo estático];
 ```
 
 
-Especificaciones -> HDL -> Síntesis -> Place and Route -> Verificación del circuito
 
 ## 2. Instalación de herramientas
 
