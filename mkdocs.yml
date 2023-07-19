@@ -1,9 +1,12 @@
 site_name: curso_fpga
+repo_url: https://github.com/cirofabianbermudez/curso_fpga
 theme:
   name: material
   features:
+    - navigation.sections
     - navigation.expand
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -23,6 +26,8 @@ theme:
         name: Switch to light mode    
       primary: teal
       accent: orange
+  font:
+    text: Roboto
 
 extra:
   social:
@@ -32,6 +37,9 @@ extra:
       link: https://twitter.com/CiroBermudez
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ciro-fabian-bermudez-marquez-a93096227/
+  analytics:
+    provider: google
+    property: G-9K60RTS6RK
 
 markdown_extensions:
   - pymdownx.highlight:

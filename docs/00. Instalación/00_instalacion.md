@@ -39,7 +39,7 @@ graph TD;
 
 ``` mermaid
 graph LR
-  A[Start] --> B{Error?};
+  A[Especificaciones] --> B{Error?};
   B -->|Yes| C[Hmm...];
   C --> D[Debug];
   D --> B;
