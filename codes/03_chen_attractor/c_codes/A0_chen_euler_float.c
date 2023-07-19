@@ -25,7 +25,7 @@ int main(void){
     double yn = y0;
     double zn = y0;
     double xni, yni, zni = 0.0;
-    int iter = 60000;                   //pq si no no jala c:
+    int iter = 100000;                   //pq si no no jala c:
 
     // Initial conditions
     printf(" # x0: %lf\n", x0 );

@@ -52,9 +52,9 @@ int main(void){
     int a, b, c;
 	double x0, y0, z0, h;
 	int integer, frac;
-    int iter = 60000;
+    int iter = 100000;
 	
-	integer = 10; frac = 32 - integer - 1; 
+	integer = 10; frac = 21 - integer - 1; 
 	initialize( integer, frac );
 	printf(" Representation A(a,b) = A(%d,%d)\n a: integer\tb: fractional \n",integer,frac);
 

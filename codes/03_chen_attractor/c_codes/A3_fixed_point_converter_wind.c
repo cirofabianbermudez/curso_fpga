@@ -65,8 +65,8 @@ int main(void){
     for (int i = 0; i < length; i++){
         fixed_value = setNumber(values[i]);
         binary_string = to_binary(fixed_value);
-        printf(" v%d <= \"%s\"; -- %64.60lf\n",i+1, binary_string, getNumber(fixed_value) );
-        fprintf(fpointer," v%d <= \"%s\"; -- %64.60lf\n",i+1, binary_string, getNumber(fixed_value) );
+        printf(" assign v%d = 32'b%s; -- %64.60lf\n",i+1, binary_string, getNumber(fixed_value) );
+        fprintf(fpointer," assign v%d = 32'b%s; -- %64.60lf\n",i+1, binary_string, getNumber(fixed_value) );
         free(binary_string);
         binary_string = NULL;
     }
