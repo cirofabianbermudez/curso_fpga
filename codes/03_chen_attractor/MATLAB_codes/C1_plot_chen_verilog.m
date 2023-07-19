@@ -1,6 +1,6 @@
 clear; close all; clc;
 
-data = load("chen_tb_output.txt");
+data = load("simu2.txt");
 xn = data(:,1);
 yn = data(:,2);
 zn = data(:,3);
