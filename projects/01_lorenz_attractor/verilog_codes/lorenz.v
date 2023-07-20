@@ -1,7 +1,7 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: lorenz.v
 //
-// Lorenz oscillator 32 bits A(11,20)
+// Lorenz oscillator 32 bits A(10,20)
 
 `include "adder.v"
 `include "sub.v"

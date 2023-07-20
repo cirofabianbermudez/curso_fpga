@@ -1,7 +1,7 @@
 // Author: Guadalupe Alonso Contreras
 // Name: chen.v
 //
-// Chen oscillator 32 bits A(11,20)
+// Chen oscillator 32 bits A(10,20)
 
 `include "adder.v"
 `include "sub.v"

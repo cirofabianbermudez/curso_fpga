@@ -17,7 +17,7 @@ module chen_tb #(
   wire [Width-1:0] yn;
   wire [Width-1:0] zn;
 
-  // Generador de se�al de reloj y reset
+  // Generador de senal de reloj y reset
   initial begin
     clk = 0; rst = 1; start = 0; #10;
              rst = 0;            #10;
@@ -45,15 +45,15 @@ module chen_tb #(
     write_data = $fopen("chen_tb_output.txt","w");
     $dumpfile("chen_tb.vcd");
     $dumpvars(0,chen_tb);
-	#30;
+	  #30;
     
     // start oscillator
     start = 1;
     #5;
     // run for 55 + 20*iter ns   200055
-    for (i = 0; i < 100000; i++) begin
-      //$fdisplay(write_data, "%h\t%h\t%h  %32.27f\t%32.27f\t%32.27f",xn, yn, zn, $itor(xn*SF),$itor(yn*SF),$itor(zn*SF));
-      $fdisplay(write_data, "%32.27f\t%32.27f\t%32.27f",$itor(xn)*SF,$itor(yn)*SF,$itor(zn)*SF);
+    for (i = 0; i < 100; i++) begin
+      $fdisplay(write_data, "%h\t%h\t%h  %32.27f\t%32.27f\t%32.27f",xn, yn, zn, $itor(xn)*SF,$itor(yn)*SF,$itor(zn)*SF);
+      //$fdisplay(write_data, "%32.27f\t%32.27f\t%32.27f",$itor(xn)*SF,$itor(yn)*SF,$itor(zn)*SF);
       #20;
     end
 

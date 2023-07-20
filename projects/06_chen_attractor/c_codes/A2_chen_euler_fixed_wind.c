@@ -54,7 +54,7 @@ int main(void){
 	int integer, frac;
     int iter = 100000;
 	
-	integer = 10; frac = 21 - integer - 1; 
+	integer = 10; frac = 32 - integer - 1; 
 	initialize( integer, frac );
 	printf(" Representation A(a,b) = A(%d,%d)\n a: integer\tb: fractional \n",integer,frac);
 
@@ -65,14 +65,15 @@ int main(void){
 	yi = setNumber( y0 );
 	zi = setNumber( z0 );
 	printf(" # x0 real: %2.10f\n # y0 real: %2.10f\n # z0 real: %2.10f\n",getNumber(xi), getNumber(yi), getNumber(zi) );
-    printf(" # lorenz oscillator generated, see output_lorenz_fixed.txt\n");
+    printf(" # chen oscillator generated, see output_chen_fixed.txt\n");
 
     a = setNumber( 40.0 );
     b = setNumber( 3.0 );
     c = setNumber( 28.0 );
     h = setNumber( 0.001 );
 	
-	fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+	//fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+	fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
 	for(int i = 0; i<iter; i++){
 		xni = xi + multTrunc( h , multTrunc( a, yi - xi ) );
 		yni = yi + multTrunc( h , multTrunc( c - a, xi ) - multTrunc( xi, zi ) + multTrunc( c, yi ) );
@@ -80,7 +81,8 @@ int main(void){
 		xi = xni;			 
 		yi = yni;
 		zi = zni;
-        fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+        //fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+        fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
 	}
 	
 	fclose(fpointer);
