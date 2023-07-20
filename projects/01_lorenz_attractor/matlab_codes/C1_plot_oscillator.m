@@ -1,6 +1,6 @@
 clear; close all; clc;
 
-data = load("tb_output.txt");
+data = load("../verilog_codes/lorenz_tb_output.txt");
 x = data(:,1);
 y = data(:,2);
 z = data(:,3);
