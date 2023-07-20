@@ -1,6 +1,6 @@
 clear; close all; clc;
 
-data = load("../c_codes/output_chen_fixed.txt");
+data = load("../verilog_codes/output_chen_fixed.txt");
 xn = data(:,1);
 yn = data(:,2);
 zn = data(:,3);
