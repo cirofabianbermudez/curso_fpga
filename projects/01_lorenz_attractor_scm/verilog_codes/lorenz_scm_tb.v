@@ -4,9 +4,9 @@
 // Run: run 200055 ns 
 
 `timescale 1ns / 100ps	  
-`include "lorenz.v"
+`include "lorenz_scm.v"
 
-module lorenz_tb #(
+module lorenz_scm_tb #(
   parameter Width = 32 
 ) ();
   // Definición de señales de entrada y salida
@@ -27,7 +27,7 @@ module lorenz_tb #(
   always #5 clk = ~clk;
   
   // Instanciacion del modulo
-  lorenz #(.Width(Width)) dut (
+  lorenz_scm #(.Width(Width)) dut (
     .rst_i(rst),
     .clk_i(clk),
     .start_i(start),
@@ -42,9 +42,9 @@ module lorenz_tb #(
   
   // Estímulo de las entradas
   initial begin
-    write_data = $fopen("lorenz_tb_output.txt","w");
-    $dumpfile("lorenz_tb.vcd");
-    $dumpvars(0,lorenz_tb);
+    write_data = $fopen("lorenz_scm_tb_output.txt","w");
+    $dumpfile("lorenz_scm_tb.vcd");
+    $dumpvars(0,lorenz_scm_tb);
 	#30;
     
     // start oscillator

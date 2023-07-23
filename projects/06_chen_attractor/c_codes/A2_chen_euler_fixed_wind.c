@@ -58,7 +58,7 @@ int main(void){
 	initialize( integer, frac );
 	printf(" Representation A(a,b) = A(%d,%d)\n a: integer\tb: fractional \n",integer,frac);
 
-	x0 = -0.1; y0 = 0.5; z0 = -0.6;
+	x0 = -10.0; y0 = 0.0; z0 = 37.0;
 	printf(" # x0: %f\n # y0: %f\n # z0: %f\n", x0, y0, z0);
 	
 	xi = setNumber( x0 );
@@ -67,13 +67,13 @@ int main(void){
 	printf(" # x0 real: %2.10f\n # y0 real: %2.10f\n # z0 real: %2.10f\n",getNumber(xi), getNumber(yi), getNumber(zi) );
     printf(" # chen oscillator generated, see output_chen_fixed.txt\n");
 
-    a = setNumber( 40.0 );
+    a = setNumber( 35.0 );
     b = setNumber( 3.0 );
     c = setNumber( 28.0 );
     h = setNumber( 0.001 );
 	
-	//fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
-	fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
+	fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+	//fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
 	for(int i = 0; i<iter; i++){
 		xni = xi + multTrunc( h , multTrunc( a, yi - xi ) );
 		yni = yi + multTrunc( h , multTrunc( c - a, xi ) - multTrunc( xi, zi ) + multTrunc( c, yi ) );
@@ -81,8 +81,8 @@ int main(void){
 		xi = xni;			 
 		yi = yni;
 		zi = zni;
-        //fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
-        fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
+        fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\n",getNumber( xi ), getNumber( yi ),getNumber( zi ));
+        //fprintf(fpointer,"%32.27lf\t%32.27lf\t%32.27lf\t\t%8.8x\t\t%8.8x\t\t%8.8x\n",getNumber( xi ), getNumber( yi ),getNumber( zi ),xi,yi,zi);
 	}
 	
 	fclose(fpointer);

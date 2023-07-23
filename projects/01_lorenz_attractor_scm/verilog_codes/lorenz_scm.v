@@ -10,8 +10,13 @@
 `include "rom.v"
 `include "cu.v"
 `include "ff_hab.v"
+`include "scm_sigma.v"
+`include "scm_rho.v"
+`include "scm_beta.v"
+`include "scm_h.v"
 
-module lorenz #(
+
+module lorenz_scm #(
   parameter Width = 32
 ) (             
   input                rst_i,
@@ -45,8 +50,10 @@ module lorenz #(
   
   // xn
   sub    #(.Width(Width)) sub_2 (.a_i(yn), .b_i(xn), .sub_o(s2) );
-  mult   #(.Width(Width)) mul_4 (.a_i(s2), .b_i(sigma_rom), .mult_o(m4) );
-  mult   #(.Width(Width)) mul_5 (.a_i(m4), .b_i(h_rom), .mult_o(m5) );
+  //mult   #(.Width(Width)) mul_4 (.a_i(s2), .b_i(sigma_rom), .mult_o(m4) );
+  scm_sigma               mul_4 (.X(s2), .Y(m4) );
+  //mult   #(.Width(Width)) mul_5 (.a_i(m4), .b_i(h_rom), .mult_o(m5) );
+  scm_h                    mul_5 (.X(m4), .Y(m5) );
   adder  #(.Width(Width)) add_1 (.a_i(m5), .b_i(xn), .sum_o(a1) );
   ff_hab #(.Width(Width)) reg_x (.rst_i(rst_i), .clk_i(clk_i), .en_i(en), .d_i(a1), .q_o(xn_retro) );
   
@@ -54,15 +61,18 @@ module lorenz #(
   sub    #(.Width(Width)) sub_1 (.a_i(rho_rom), .b_i(zn), .sub_o(s1) );
   mult   #(.Width(Width)) mul_1 (.a_i(s1), .b_i(xn), .mult_o(m1) );
   sub    #(.Width(Width)) sub_3 (.a_i(m1), .b_i(yn), .sub_o(s3) );
-  mult   #(.Width(Width)) mul_6 (.a_i(s3), .b_i(h_rom), .mult_o(m6) );
+  //mult   #(.Width(Width)) mul_6 (.a_i(s3), .b_i(h_rom), .mult_o(m6) );
+  scm_h                   mul_6 (.X(s3), .Y(m6) );
   adder  #(.Width(Width)) add_2 (.a_i(m6), .b_i(yn), .sum_o(a2) );
   ff_hab #(.Width(Width)) reg_y (.rst_i(rst_i), .clk_i(clk_i), .en_i(en), .d_i(a2), .q_o(yn_retro) );
   
   // zn
   mult   #(.Width(Width)) mul_2 (.a_i(yn), .b_i(xn), .mult_o(m2) );
-  mult   #(.Width(Width)) mul_3 (.a_i(beta_rom), .b_i(zn), .mult_o(m3) );
+  //mult   #(.Width(Width)) mul_3 (.a_i(beta_rom), .b_i(zn), .mult_o(m3) );
+  scm_beta                mul_3 (.X(zn), .Y(m3) );
   sub    #(.Width(Width)) sub_4 (.a_i(m2), .b_i(m3), .sub_o(s4) );
-  mult   #(.Width(Width)) mul_7 (.a_i(s4), .b_i(h_rom), .mult_o(m7) );
+  //mult   #(.Width(Width)) mul_7 (.a_i(s4), .b_i(h_rom), .mult_o(m7) );
+  scm_h                   mul_7 (.X(s4), .Y(m7) );
   adder  #(.Width(Width)) add_3 (.a_i(m7), .b_i(zn), .sum_o(a3) );
   ff_hab #(.Width(Width)) reg_z (.rst_i(rst_i), .clk_i(clk_i), .en_i(en), .d_i(a3), .q_o(zn_retro) );
   

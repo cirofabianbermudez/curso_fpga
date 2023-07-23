@@ -7,7 +7,10 @@ clear; close all; clc;
 % data = load("../c_codes/output_lorenz_fixed.txt");
 
 % Simulacion de verilog
-data = load("../verilog_codes/lorenz_tb_output.txt");
+% data = load("../verilog_codes/lorenz_scm_tb_output.txt");
+
+% Delete me later
+data = load("output_chen_fixed.txt");
 
 x = data(:,1);
 y = data(:,2);
