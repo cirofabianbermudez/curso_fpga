@@ -1,4 +1,6 @@
-## ![FPGA_Design_with_Verilog](logo\logo.png)
+
+
+<p align="center"><img width=12.5% src="logo/logo.png"></p>
 
 [Ver documentación](https://cirofabianbermudez.com/curso_fpga/)
 
