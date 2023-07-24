@@ -18,6 +18,10 @@ module mux2_to_1 #(
 endmodule
 ```
 
+### 1.1 Multiplexor 4 a 1 de n bits
+
+
+
 ``` verilog title="mux4_to_1.v" linenums="1"
 module mux4_to_1 #(
   parameter Width = 32
