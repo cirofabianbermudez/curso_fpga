@@ -2,6 +2,8 @@
 # Pdf files and txt files
 *.txt
 *.pdf
+*.rar
+*.epub
 
 # Verilog run files
 *.vcd
@@ -9,6 +11,9 @@
 
 # Windows bak files
 *.bak
+
+# Obsidian files
+*.obsidian
 
 # ---------- Python ignore file -----------------------
 # Byte-compiled / optimized / DLL files
