@@ -1,6 +1,7 @@
-# Bienvenido a curso_fpga
-
-## Introducción
+# FPGA Design with Verilog
+<figure markdown>
+  ![Image title](imagenes/logo.png){ width="600" }
+</figure>
 
 ## Colaboradores
 - Guadalupe Alonso Contreras - [LinkedIn](https://www.linkedin.com/in/guadalupe-alonso-b099811ab/)

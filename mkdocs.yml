@@ -1,35 +1,64 @@
+# Project information
 site_name: curso_fpga
+site_author: Ciro Fabian Bermudez Marquez
+site_description: >-
+  Documentación de Verilog
+
+# Repository
+# repo_name: cirofabianbermudez/curso_fpga
 repo_url: https://github.com/cirofabianbermudez/curso_fpga
+
+# Copyright
+copyright: >- 
+  &copy; 2023 Ciro Bermudez
+#  &copy; 2023 <a href="https://github.com/cirofabianbermudez"  target="_blank" rel="noopener">Ciro Bermudez</a>
+
 theme:
   name: material
   features:
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - navigation.footer
-    - search.suggest
-    - search.highlight
-    - content.tabs.link
-    - content.code.annotation
-    - content.code.copy
+    - content.code.copy        # Añade el simbolo de copiar
+    - content.code.annotate    # Permite añadir signo (+) en comentarios del código # (1)
+    - content.tabs.link        # Cambian los code tabs juntos
+    - navigation.footer        # Botones de navegacion en el footer
+    - navigation.indexes       # Habilitar index para carpetas
+    - navigation.sections      # Despliega las secciones en negritas
+    - navigation.tabs          # Cambia la navegacion por pestañas
+#    - navigation.expand        # Expande las secciones, desactivar tabs
+    - navigation.top           # Anade boton para subir rapido
+    - navigation.tracking      # Modifica el URL dependiendo de la seccion
+    - search.suggest           # Sugerencias del buscador
+    - search.highlight         # Resaltar la palabra buscada
+#    - search.share            # Boton de compartir en busqueda
+    - toc.follow               # Autoscroll table of contents
+# Language configuration
   language: en
+# Color palette configuration
   palette:
-    - scheme: slate
+    - scheme: default
+      primary: teal #teal indigo
+      accent: teal
       toggle:
         icon: material/brightness-4
         name: Switch to dark mode
+    - scheme: slate
       primary: teal
-      accent: orange
-    - scheme: default
+      accent: teal
       toggle:
         icon: material/brightness-7
-        name: Switch to light mode    
-      primary: teal
-      accent: orange
+        name: Switch to light mode
+# Font configuration
   font:
     text: Roboto
+    code: Roboto Mono
 
+# Plugins para search
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+# Extras
 extra:
+# Footer configuration
   social:
     - icon: fontawesome/brands/github-alt
       link: https://github.com/cirofabianbermudez
@@ -37,37 +66,105 @@ extra:
       link: https://twitter.com/CiroBermudez
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ciro-fabian-bermudez-marquez-a93096227/
+# Google analitycs
   analytics:
     provider: google
     property: G-9K60RTS6RK
 
+
 markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - admonition
-  - md_in_html
-  - pymdownx.arithmatex:
-      generic: true
-  - footnotes
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.mark
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+# Mermaid configuration
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-
+# Content tabs configuration (pestanias en codigos y anotaciones)
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+# Code blocks configuration
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+# Table of contents configuration
+  - toc:
+      permalink: true
+# Admonitions configuration (note, info, tip)
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+# Annotations configuration
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+# Footnotes configuration
+  - footnotes
+# List configuration
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+# Caret, Mark & Tilde configuration
+  - pymdownx.caret                # ^^Insert me^^
+  - pymdownx.mark                 # ==mark me==
+  - pymdownx.tilde                # ~~Delete me~~
+# BetterEM condiguration
+  - pymdownx.betterem
+# Tables configuration
+  - tables
+# Custom key icons
+  - pymdownx.keys
+# Smart symbols configuration
+  - pymdownx.smartsymbols
+# Icons, Emojis configuration
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+# MathJax configuration
+  - pymdownx.arithmatex:
+      generic: true
+  
+# MathJaxs javascript configuration
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-copyright: |
-  &copy; 2023 <a href="https://github.com/cirofabianbermudez"  target="_blank" rel="noopener">Ciro Bermudez</a>
+# Page tree
+nav:
+  - Home: 
+      - index.md
+  - Getting started:
+      - getting_started/index.md
+  - Documentación:
+      - documentacion/index.md
+      - 1. Combinacionales: 
+          - documentacion/combinacionales/index.md
+          - Look Up Tables: documentacion/combinacionales/look_up_table.md
+          - Multiplexores: documentacion/combinacionales/multiplexor.md
+          - Codificadores: documentacion/combinacionales/codificador.md
+          - Decodificadores: documentacion/combinacionales/decodificador.md
+          - ROMs: documentacion/combinacionales/memorias_rom.md
+          - Sumadores: documentacion/combinacionales/sumador.md
+          - Restadores: documentacion/combinacionales/restador.md
+          - Multiplicadores: documentacion/combinacionales/multiplicador.md
+      - 2. Secuenciales: 
+          - documentacion/secuenciales/index.md
+          - Flip-Flop: documentacion/secuenciales/flipflop.md
+          - Contadores: documentacion/secuenciales/contador.md
+          - FSM Moore: documentacion/secuenciales/contador.md
+          - FSM Mealy: documentacion/secuenciales/contador.md
+      - 3. Teoría:
+          - documentacion/teoria/index.md
+          - Punto Fijo: documentacion/teoria/fixed_point.md
+          - SCM: documentacion/teoria/scm.md
+
+  - Proyectos: 
+      - proyectos/index.md
+  - Blog:
+      - blog/index.md

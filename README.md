@@ -1,5 +1,3 @@
-
-
 <p align="center"><img width=90% src="logo/logo.png"></p>
 
 <div align="center">

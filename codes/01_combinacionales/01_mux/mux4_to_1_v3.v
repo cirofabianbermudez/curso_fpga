@@ -3,7 +3,7 @@
 //
 // Description: Third option of multiplexer 4 inputs 1 output
 
-module mux4_to_1_v3 #(
+module mux4_to_1 #(
   parameter Width = 32
 ) (
   input      [Width-1:0] in1_i,
