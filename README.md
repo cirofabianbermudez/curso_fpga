@@ -1,8 +1,10 @@
 
 
-<p align="center"><img width=12.5% src="logo/logo.png"></p>
+<p align="center"><img width=90% src="logo/logo.png"></p>
 
-[Ver documentación](https://cirofabianbermudez.com/curso_fpga/)
+## Resumen Básico
+
+[Ir a documentación](https://cirofabianbermudez.com/curso_fpga/)
 
 
 ## Colaboradores: 
