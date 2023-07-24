@@ -3,10 +3,13 @@
 <p align="center"><img width=90% src="logo/logo.png"></p>
 
 <div align="center">
-  ![GitHub repo size](https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga)
-  ![GitHub watchers](https://img.shields.io/github/watchers/cirofabianbermudez/curso_fpga)
-  ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=Github)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga)
+![GitHub watchers](https://img.shields.io/github/watchers/cirofabianbermudez/curso_fpga)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=Github)
+
 </div>
+
 
 
 ## Resumen Básico
