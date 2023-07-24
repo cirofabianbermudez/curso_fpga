@@ -2,6 +2,9 @@
 
 <p align="center"><img width=90% src="logo/logo.png"></p>
 
+![GitHub repo size](https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga)
+
+
 ## Resumen Básico
 
 [Ir a documentación](https://cirofabianbermudez.com/curso_fpga/)
