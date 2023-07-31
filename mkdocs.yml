@@ -23,6 +23,7 @@ theme:
     - navigation.indexes       # Habilitar index para carpetas
     - navigation.sections      # Despliega las secciones en negritas
     - navigation.tabs          # Cambia la navegacion por pestañas
+    - navigation.tabs.sticky   # Mantener las pestañas siempre
 #    - navigation.expand        # Expande las secciones, desactivar tabs
     - navigation.top           # Anade boton para subir rapido
     - navigation.tracking      # Modifica el URL dependiendo de la seccion

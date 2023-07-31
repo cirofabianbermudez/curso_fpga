@@ -39,7 +39,7 @@ pie showData
     "Otros" :  7.00
 ```
 
-Xilinx domina casi la mitad del mercado con una participación del 51%, seguida por Altera, que cuenta con el 29%. El 20% restante se reparte entre Lattice, Microchip y otros competidores. 
+<span style="color:#df2128">AMD (Xilinx)</span> domina casi la mitad del mercado con una participación del 51%, seguida por <span style="color:#0068b5">Intel (Altera)</span>, que cuenta con el 29%, <span style="color:#ffc221">Lattice</span> con un 7%, <span style="color:#999999">Microchip</span> con un 6%. El 7% restante se reparten <span style="color:#de87cd">Otros</span> competidores. 
 
 [Comparacion](https://www.terasic.com.tw/attachment/archive/1081/image/de10-standard-C.jpg)
 

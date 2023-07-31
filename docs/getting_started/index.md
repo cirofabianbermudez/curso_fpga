@@ -61,18 +61,17 @@ graph LR
 ```
 Una de las estrategias más comunes al trabajar con Verilog es primero compilar y simular el código en [Icarus Verilog](https://bleyer.org/icarus/) y una vez probado pasar a [Vivado ML Edition](https://www.xilinx.com/products/design-tools/vivado/vivado-ml.html) o [Intel Quartus Prime Lite Edition](https://www.intel.la/content/www/xl/es/products/details/fpga/development-tools/quartus-prime/resource.html) para realizar la síntesis, el place and route y generar el archivo de programación para la FPGA. La ventaja de hacerlo de esta manera es que la compilación y la simulación es más rápida en [Icarus Verilog](https://bleyer.org/icarus/), lo que se traduce en un ahorro en el tiempo de diseño.
 
-## 2. Instalación
+Para poder visualizar las formas de onda generadas por [Icarus Verilog](https://bleyer.org/icarus/) se utiliza el programa [GTKWave](https://gtkwave.sourceforge.net/) el cual es un completo visor de ondas basado en GTK+ para Unix, Win32 y Mac OSX que lee archivos LXT, LXT2, VZT, FST y GHW, así como archivos estándar Verilog VCD/EVCD y permite su visualización.
 
-### 2.1. Icarus Verilog
+## 2. Instalación de Icarus
 
 #### 2.1.1. Windows
-
 La manera recomendada para realizar la instalación en Windows es utilizando [Scoop](https://scoop.sh/), un instalador de línea de comandos diseñado específicamente para Windows. A continuación se muestran los pasos para instalar [Scoop](https://scoop.sh/) e [Icarus Verilog](https://bleyer.org/icarus/).
 
-???+ note "Nota"
-    Se sugiere visitar la página oficial de Scoop para verificar si ha habido cambios en los comandos de instalación. La información fue revisada por última vez el 29/07/2023.
+???+ note "Nota 1."
+    Se sugiere visitar la página oficial de [Scoop](https://scoop.sh/) para verificar si ha habido cambios en los comandos de instalación. La información fue revisada por última vez el 29/07/2023.
     
-???+ note "Note"
+???+ note "Nota 2."
     Si se instala [Icarus Verilog](https://bleyer.org/icarus/) de manera manual es necesario agregar la carpeta de instalación al `PATH`.
 
 1. Abrir una terminal de [PowerShell](https://learn.microsoft.com/es-mx/powershell/)  o Windows PowerShell y ejecutar las siguientes dos lineas de comando para instalar [Scoop](https://scoop.sh/) :
@@ -100,13 +99,14 @@ gtkwave
 ```
 
 #### 2.1.2. Linux
-Para sistemas operativos Linux basados en Debian/Ubuntu la instalación es muy sencilla. Seguir los siguientes pasos:
+Para sistemas operativos Linux basados en Debian/Ubuntu la instalación más sencilla. Seguir los siguientes pasos:
 
-1. Abrir una terminal  y ejecutar el siguiente comando:
+1. Abrir una terminal  y ejecutar el siguiente comando para instalar [Icarus Verilog](https://bleyer.org/icarus/) y [GTKWave](https://gtkwave.sourceforge.net/):
 ``` plain linenums="1"
 sudo apt install iverilog gtkwave
 ```
-2. Verificar que la instalación fue exitosa ejecutando los siguientes comandos:
+
+3. Verificar que la instalación fue exitosa ejecutando los siguientes comandos:
 ``` plain linenums="1"
 iverilog
 gtkwave --version
@@ -114,37 +114,69 @@ gtkwave
 ```
 
 #### 2.1.3. Mac
+La manera recomendada para realizar la instalación en macOS es utilizando el gestor de paquetes [Homebrew](https://brew.sh/). A continuación se muestran los pasos para instalar [Homebrew](https://brew.sh/) e [Icarus Verilog](https://bleyer.org/icarus/)[^2] .
 
+???+ note "Nota 3."
+    Se sugiere visitar la página oficial de [Homebrew](https://brew.sh/) para verificar si ha habido cambios en los comandos de instalación. La información fue revisada por última vez el 29/07/2023.
 
-
-
-- - Para windows  `scoop install iverilog`
-  - Para macOS  `brew install icarus-verilog`
-- Instalar un visualizador de forma de onda para verilog. [GTKwave](https://gtkwave.sourceforge.net/) es una muy buena opción.
-  - Para Windows ya vienen preinstalado con Icarus.
-  - Para macOS basta con entrar al siguiente [enlace](https://sourceforge.net/projects/gtkwave/files/latest/download) e instalar.
-- Crear los códigos  `circuit.v` y su archivo de simulación `circuit_tb.v`
-- En el archivo de simulación es necesario incluir:
-
-
-
-## 3. Primer programa
-
-
-
-``` verilog linenums="1"
-`timescale 1ns / 100 ps
-`include "circuit.v"
-
-initial begin
-  $dumpfile("circuit_tb.vcd");
-  $dumpvars(0, circuit_tb);
-  
-  $display("Test complete");
-end
+1. Abrir una terminal y ejecutar el siguiente comando para instalar [Homebrew](https://brew.sh/):
+``` plain linenums="1"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+2. Ejecutar el siguiente comando para instalar [Icarus Verilog](https://bleyer.org/icarus/):
+``` plain linenums="1"
+brew install icarus-verilog
+```
+3. Descargar desde la página oficial [GTKWave](https://gtkwave.sourceforge.net/) para obtener la última versión, es un archivo `.zip`, descomprimirlo y darle el acceso requerido. Alternativamente ejecutar el siguiente comando, la versión pude ser más vieja:
+``` plain linenums="1"
+brew install --cask gtkwave
+```
+4. Verificar que la instalación fue exitosa ejecutando los siguientes comandos:
+``` plain linenums="1"
+iverilog
+gtkwave --version
+gtkwave
 ```
 
-- Los comandos a ejecutar son:
+## 3. ¿Cómo utilizar Icarus?
+
+Para aprender a utilizar [Icarus Verilog](https://bleyer.org/icarus/) y [GTKWave](https://gtkwave.sourceforge.net/) consideremos el siguiente circuito combinacional. Con la siguiente ecuación booleana:
+
+$$
+f(A,B,C) = (\overline{A} \cdot C) + (B \cdot C)
+$$
+
+
+
+Y tabla de verdad:
+
+<figure markdown>
+  <figcaption> <b>Tabla 2.</b> Tabla de Verdad de función boolena.</figcaption>
+
+| Decimal | $A$  | $B$  | $C$  | $f(A,B,C)$ |
+| :--: | :--: | :--: | :--: | :--------: |
+| 0  | 0  | 0  | 0  | 0          |
+| 1  | 0  | 0  | 1  | 1          |
+| 2  | 0  | 1  | 0  | 0          |
+| 3  | 0  | 1  | 1  | 1          |
+| 4  | 1  | 0  | 0  | 0          |
+| 5  | 1  | 0  | 1  | 0          |
+| 6  | 1  | 1  | 0  | 0          |
+| 7  | 1  | 1  | 1  | 1          |
+
+</figure>
+
+
+``` verilog title="lut.v" linenums="1"
+--8<-- "codes/01_combinacionales/00_test/lut.v:6"
+```
+
+
+
+
+
+
+
 
 ```plain
 iverilog -o circuit_tb.vvp circuit_tb.v
@@ -176,3 +208,5 @@ https://gitlab.com/jjchico/verilog-course.v/-/tree/master/verilog?ref_type=heads
 
 ## 4. Referencias
 [^1]:  “FPGA vs. ASIC Design Flow”, Xilinx. <https://www.xilinx.com/video/fpga/fpga-vs-asic-design-flow.html> (consultado el 29 de julio de 2023).
+
+[^2]: S. Ankit, “How to simulate Verilog models on macOS”, Medium, el 18 de septiembre de 2020. <https://saiankit.medium.com/how-to-simulate-verilog-models-on-macos-5a6f821b2c4f> (consultado el 31 de julio de 2023).
