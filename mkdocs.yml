@@ -141,6 +141,11 @@ nav:
       - index.md
   - Getting started:
       - getting_started/index.md
+      - FPGAs: getting_started/fpgas.md
+      - Verilog Reference: getting_started/intro_verilog.md
+      - Code Guidelines: getting_started/code_guidelines.md
+      - Acrónimos: getting_started/acronyms.md
+      - Extra: getting_started/extra.md
   - Documentación:
       - documentacion/index.md
       - 1. Combinacionales: 
@@ -163,7 +168,6 @@ nav:
           - documentacion/teoria/index.md
           - Punto Fijo: documentacion/teoria/fixed_point.md
           - SCM: documentacion/teoria/scm.md
-
   - Proyectos: 
       - proyectos/index.md
   - Blog:

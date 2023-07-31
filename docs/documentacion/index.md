@@ -8,8 +8,8 @@
     - [1.4. Decodificadores](combinacionales/decodificador.md)
     - [1.5. ROMs](combinacionales/memorias_rom.md)
     - [1.6. Sumadores](combinacionales/sumador.md)
-    - [1.6. Restadores](combinacionales/restador.md)
-    - [1.6. Multiplicadores](combinacionales/multiplicador.md)
+    - [1.7. Restadores](combinacionales/restador.md)
+    - [1.8. Multiplicadores](combinacionales/multiplicador.md)
 
 - [2. Secuencial](secuenciales/index.md)
     - [2.1. Flip-Flops](secuenciales/flipflop.md)

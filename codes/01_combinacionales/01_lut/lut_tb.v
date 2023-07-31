@@ -1,5 +1,6 @@
 // Author: Guadalupe Alonso Contreras y Ciro Fabian Bermudez Marquez
 // Name: lut_tb.v
+//
 // Description: Testbench estimulos combinacionales.
 
 `timescale 1ns / 100 ps
