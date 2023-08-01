@@ -173,11 +173,13 @@ El código en Verilog que describe el circuito combinacional de arriba es el sig
 
 ### 3.2. Simulación
 
+En el siguiente código se muestra una plantilla sencilla para hacer un testbench combinacional, este cuenta con comentarios que explican cada una de las líneas.
+
 ``` verilog title="lut.v" linenums="1"
 --8<-- "codes/01_combinacionales/00_test/lut_tb.v:6"
 ```
 
-Seguir los siguientes pasos:
+Para realizar la simulación es necesario seguir los siguientes pasos:
 
 1. Crear una nueva carpera para el proyecto, para este ejemplo nombrar a la carpeta `test`.
 2. Copiar dentro de ella los archivos:
@@ -195,17 +197,17 @@ vvp lut_tb.vvp
 ``` plain linenums="1"
 start gtkwave lut_tb.vcd
 ```
-6. Desplegar `lut_tb`, después dar clic en `dut` y en la sección `Signals` seleccinar las señales `A`, `B`, `C` y `F`, manteniendo presionada la tecla ++ctrl++ y seleccionando con el ++lbutton++ del mouse.
+6. Dentro de GTKWave desplegar `lut_tb`, después dar clic en `dut` y en la sección `Signals` seleccionar las señales `A`, `B`, `C` y `F`, manteniendo presionada la tecla ++ctrl++ y seleccionando con el ++lbutton++ del mouse.
 
 ### 3.3. Resultados
+
+Dentro de la carpeta se generará un archivo con el nombre `lut_tb_output.txt` que contiene lo siguiente:
 
 ``` plain title="lut_tb_output.txt" linenums="1"
 --8<-- "codes/01_combinacionales/00_test/lut_tb_output.out"
 ```
 
-
-
-
+y la forma de onda debe ser igual a la siguiente imagen:
 
 <figure markdown>
   ![Image title](../imagenes/00_test_simulation.png){ width="700" }
