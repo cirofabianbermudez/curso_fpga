@@ -140,18 +140,16 @@ gtkwave
 
 ## 3. ¿Cómo utilizar Icarus?
 
-Para aprender a utilizar [Icarus Verilog](https://bleyer.org/icarus/) y [GTKWave](https://gtkwave.sourceforge.net/) consideremos el siguiente circuito combinacional. Con la siguiente ecuación booleana:
+Para aprender a utilizar [Icarus Verilog](https://bleyer.org/icarus/) y [GTKWave](https://gtkwave.sourceforge.net/) consideremos el siguiente circuito combinacional, que esta definido por la siguiente ecuación booleana:
 
 $$
 f(A,B,C) = (\overline{A} \cdot C) + (B \cdot C)
 $$
 
-
-
-Y tabla de verdad:
+y cuya tabla de verdad es la siguiente:
 
 <figure markdown>
-  <figcaption> <b>Tabla 2.</b> Tabla de Verdad de función boolena.</figcaption>
+  <figcaption> <b>Tabla 2.</b> Tabla de verdad de función boolena.</figcaption>
 
 | Decimal | $A$  | $B$  | $C$  | $f(A,B,C)$ |
 | :--: | :--: | :--: | :--: | :--------: |
@@ -166,45 +164,56 @@ Y tabla de verdad:
 
 </figure>
 
+### 3.1. Descripción en Verilog
+El código en Verilog que describe el circuito combinacional de arriba es el siguiente: 
 
 ``` verilog title="lut.v" linenums="1"
 --8<-- "codes/01_combinacionales/00_test/lut.v:6"
 ```
 
+### 3.2. Simulación
 
+``` verilog title="lut.v" linenums="1"
+--8<-- "codes/01_combinacionales/00_test/lut_tb.v:6"
+```
 
+Seguir los siguientes pasos:
 
-
-
-
-
-```plain
-iverilog -o circuit_tb.vvp circuit_tb.v
-vvp circuit_tb.vvp
-start gtkwave
+1. Crear una nueva carpera para el proyecto, para este ejemplo nombrar a la carpeta `test`.
+2. Copiar dentro de ella los archivos:
+    - `lut.v`
+    - `lut_tb.v`
+3. Abrir una terminal y ejecutar el siguiente comando para compilar:
+``` plain linenums="1"
+iverilog -o lut_tb.vvp lut_tb.v
+```
+4. Ejecutar el siguiente comando para ejecutar el archivo compilado:
+``` plain linenums="1"
+vvp lut_tb.vvp
+```
+5. Abrir el programa GTKWave para analizar la simulación con el siguiente comando:
+``` plain
+start gtkwave lut_tb.vcd
 ```
 
 
+### 3.3. Resultados
+
+``` plain title="lut_tb_output.txt" linenums="1"
+--8<-- "codes/01_combinacionales/00_test/lut_tb_output.txt"
+```
+
+
+
+
+
 <figure markdown>
-  ![Image title](https://dummyimage.com/600x400/){ width="500" }
+  ![Image title](../imagenes/00_test_simulation.png){ width="700" }
   <figcaption><b>Figura 1.</b> Nombre de la imagen.</figcaption>
 </figure>
 
 
 
-
-
-
-https://gitlab.com/jjchico/verilog-course.v/-/tree/master/verilog?ref_type=heads
-
-
-
-- Uso de `$dumpvars` en el [enlace](https://www.referencedesigner.com/tutorials/verilog/verilog_62.php#:~:text=The%20simplest%20way%20to%20use%20it%20is%20without%20any%20argument.&text=%24dumpvars(0%2C%20toptestbench_module),instantiated%20by%20this%20top%20module.)
-- Cómo instalar las herramientas Icarus y GTKwave, [video](https://www.youtube.com/watch?v=3Xm6fgKAO94&list=PLTFN8e-Y3kpEhLKNox-tRNJ9eNFxZopA.0)
-- Ejemplo de como utilizar Icarus y GTKwave, [video](https://www.youtube.com/watch?v=-EKjm7G4HcI)
-- Articulo de cómo instalar en macOS, [enlace](https://saiankit.medium.com/how-to-simulate-verilog-models-on-macos-5a6f821b2c4f)
-- Pagina de verilog, [enlace](https://www.verilog.com/)
-- Market share de fpgas, [enlace](https://www.icdrex.com/lattice-avant-of-mid-range-fpgas-may-be-the-biggest-winner/#:~:text=According%20to%20the%20data%20released,of%20the%20global%20FPGA%20market.)
 
 ## 4. Referencias
 [^1]:  “FPGA vs. ASIC Design Flow”, Xilinx. <https://www.xilinx.com/video/fpga/fpga-vs-asic-design-flow.html> (consultado el 29 de julio de 2023).

@@ -6,9 +6,8 @@
 `timescale 1ns / 100 ps
 `include "lut.v"
 
-
 module lut_tb();
-  // Definición de señales de entrada y salida
+  // Definicion de senales de entrada y salida
   reg A;
   reg B;
   reg C;
@@ -34,9 +33,9 @@ module lut_tb();
     $timeformat(-9, 2, " ns", 10);
 
     // Simular todas las combinaciones posibles
-    for (i = 0; i < 16; i++) begin
-        {A,B,C,D} = i; #20; t = $time;
-        $fdisplay(write_data,"Time = %t, {A,B,C,D} = %b, X = %b", t, {A,B,C,D}, X);
+    for (i = 0; i < 8; i++) begin
+        {A,B,C} = i; #20; t = $time;
+        $fdisplay(write_data,"Time = %t, {A,B,C} = %b, X = %b", t, {A,B,C}, F);
     end
 
     // Cerrar archivo de texto

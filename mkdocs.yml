@@ -56,6 +56,7 @@ theme:
 plugins:
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - glightbox
 
 # Extras
 extra:
@@ -142,6 +143,7 @@ nav:
       - index.md
   - Getting started:
       - getting_started/index.md
+      - Scripts: getting_started/automate_scripts.md
       - FPGAs: getting_started/fpgas.md
       - Verilog Reference: getting_started/intro_verilog.md
       - Code Guidelines: getting_started/code_guidelines.md
