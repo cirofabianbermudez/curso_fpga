@@ -65,7 +65,7 @@ Para poder visualizar las formas de onda generadas por [Icarus Verilog](https://
 
 ## 2. Instalación de Icarus
 
-#### 2.1.1. Windows
+### 2.1. Windows
 La manera recomendada para realizar la instalación en Windows es utilizando [Scoop](https://scoop.sh/), un instalador de línea de comandos diseñado específicamente para Windows. A continuación se muestran los pasos para instalar [Scoop](https://scoop.sh/) e [Icarus Verilog](https://bleyer.org/icarus/).
 
 ???+ note "Nota 1."
@@ -98,7 +98,7 @@ gtkwave --version
 gtkwave
 ```
 
-#### 2.1.2. Linux
+### 2.2. Linux
 Para sistemas operativos Linux basados en Debian/Ubuntu la instalación más sencilla. Seguir los siguientes pasos:
 
 1. Abrir una terminal  y ejecutar el siguiente comando para instalar [Icarus Verilog](https://bleyer.org/icarus/) y [GTKWave](https://gtkwave.sourceforge.net/):
@@ -113,7 +113,7 @@ gtkwave --version
 gtkwave
 ```
 
-#### 2.1.3. Mac
+### 2.3. Mac
 La manera recomendada para realizar la instalación en macOS es utilizando el gestor de paquetes [Homebrew](https://brew.sh/). A continuación se muestran los pasos para instalar [Homebrew](https://brew.sh/) e [Icarus Verilog](https://bleyer.org/icarus/)[^2] .
 
 ???+ note "Nota 3."
@@ -192,15 +192,15 @@ iverilog -o lut_tb.vvp lut_tb.v
 vvp lut_tb.vvp
 ```
 5. Abrir el programa GTKWave para analizar la simulación con el siguiente comando:
-``` plain
+``` plain linenums="1"
 start gtkwave lut_tb.vcd
 ```
-
+6. Desplegar `lut_tb`, después dar clic en `dut` y en la sección `Signals` seleccinar las señales `A`, `B`, `C` y `F`, manteniendo presionada la tecla ++ctrl++ y seleccionando con el ++lbutton++ del mouse.
 
 ### 3.3. Resultados
 
 ``` plain title="lut_tb_output.txt" linenums="1"
---8<-- "codes/01_combinacionales/00_test/lut_tb_output.txt"
+--8<-- "codes/01_combinacionales/00_test/lut_tb_output.out"
 ```
 
 
@@ -209,7 +209,7 @@ start gtkwave lut_tb.vcd
 
 <figure markdown>
   ![Image title](../imagenes/00_test_simulation.png){ width="700" }
-  <figcaption><b>Figura 1.</b> Nombre de la imagen.</figcaption>
+  <figcaption><b>Figura 1.</b> Resultados de simulación en GTKWave.</figcaption>
 </figure>
 
 

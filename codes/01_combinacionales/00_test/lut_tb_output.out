@@ -1,0 +1,8 @@
+Time =   20.00 ns, {A,B,C} = 000, X = 0
+Time =   40.00 ns, {A,B,C} = 001, X = 1
+Time =   60.00 ns, {A,B,C} = 010, X = 0
+Time =   80.00 ns, {A,B,C} = 011, X = 1
+Time =  100.00 ns, {A,B,C} = 100, X = 0
+Time =  120.00 ns, {A,B,C} = 101, X = 0
+Time =  140.00 ns, {A,B,C} = 110, X = 0
+Time =  160.00 ns, {A,B,C} = 111, X = 1
