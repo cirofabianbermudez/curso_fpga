@@ -5,7 +5,7 @@
 
 module dec7seg_v2 (
   input      [3:0] binary,
-  output reg [6:0] leds        //lo declaramos cono reg porque es una variable
+  output reg [6:0] leds       
 );
 
   always @(binary) begin

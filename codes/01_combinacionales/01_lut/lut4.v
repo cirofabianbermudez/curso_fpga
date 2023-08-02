@@ -1,21 +1,21 @@
 // Author: Guadalupe Alonso
 // Name: lut4.v
 //
-// Description: Third option of Look Up Table
+// Description: Forth option of Look Up Table
 
 module lut4(
   input A,
   input B,
   input C,
   input D,
-  output reg X
+  output reg F
 );
 
   always @(A,B,C,D) begin
-    if ( (~A & ~B & ~C & ~D) | (A & B & C & D) | (A & ~B & ~C & D) ) begin
-      X = 1;
+    if ( ( A & ~B &  C &  D) | (A & B & ~C & D)  ) begin
+      F = 1'b1;
     end else begin
-      X = 0;
+      F = 1'b0;
     end
   end
 

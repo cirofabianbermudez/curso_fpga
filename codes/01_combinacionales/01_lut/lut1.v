@@ -8,9 +8,9 @@ module lut1(
   input B,
   input C,
   input D,
-  output X
+  output F
 );
 
-  assign X = (~A & B & ~C) | (A & B & ~C) | (B & ~C & D);
+  assign F = (~A & ~B & D) | (B & ~C & ~D) | (~A & C & ~D);
 
 endmodule

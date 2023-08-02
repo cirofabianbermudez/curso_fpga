@@ -8,12 +8,15 @@ module lut3(
   input B,
   input C,
   input D,
-  output X
+  output F
 );
-
-  and(c1,~A, B,~C);
-  and(c2, A, B,~C);
-  and(c3, B,~C, D);
-  or(X,c1,c2,c3);
+  wire c1;
+  wire c2; 
+  wire c3;
+  
+  and(c1,~A,~B, D);
+  and(c2, B,~C,~D);
+  and(c3,~A,C,~D);
+  or(F,c1,c2,c3);
 
 endmodule

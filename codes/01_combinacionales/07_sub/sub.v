@@ -2,6 +2,7 @@
 // Name: sub.v
 //
 // Simple signed subtracter
+
 module sub #(
   parameter Width = 32
 ) (

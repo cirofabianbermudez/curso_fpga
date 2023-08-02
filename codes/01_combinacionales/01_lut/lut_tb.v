@@ -8,6 +8,7 @@
 `include "lut2.v"
 `include "lut3.v"
 `include "lut4.v"
+`include "lut5.v"
 
 module lut_tb();
   // Definición de señales de entrada y salida
@@ -15,13 +16,14 @@ module lut_tb();
   reg B;
   reg C;
   reg D;
-  wire X;
+  wire F;
 
   // Instanciacion del modulo
-  //lut1 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
-  //lut2 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
-  //lut3 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
-  lut4 dut(.A(A), .B(B), .C(C), .D(D), .X(X));
+  lut1 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
+  //lut2 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
+  //lut3 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
+  //lut4 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
+  //lut5 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
 
   // Variables para archivo, iteraciones y tiempo
   integer write_data;
@@ -42,7 +44,7 @@ module lut_tb();
     // Simular todas las combinaciones posibles
     for (i = 0; i < 16; i++) begin
         {A,B,C,D} = i; #20; t = $time;
-        $fdisplay(write_data,"Time = %t, {A,B,C,D} = %b, X = %b", t, {A,B,C,D}, X);
+        $fdisplay(write_data,"Time = %t, {A,B,C,D} = %b, X = %b", t, {A,B,C,D}, F);
     end
 
     // Cerrar archivo de texto

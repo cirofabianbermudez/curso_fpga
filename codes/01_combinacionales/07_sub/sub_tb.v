@@ -10,7 +10,7 @@ module sub_tb #(
   parameter Width = 32 
 ) ();
 
-  // Definición de señales de entrada y salida
+  // DefiniciÃ³n de seÃ±ales de entrada y salida
   reg [Width-1:0] a;
   reg [Width-1:0] b;
 

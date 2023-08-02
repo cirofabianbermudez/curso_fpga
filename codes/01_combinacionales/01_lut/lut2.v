@@ -8,16 +8,16 @@ module lut2(
   input B,
   input C,
   input D,
-  output X
+  output F
 );
 
   wire c1;
   wire c2;
   wire c3;
 
-  assign c1 = ~A & B & ~C;
-  assign c2 = A & B & ~C;
-  assign c3 = B & ~C & D;
-  assign  X = c1 | c2 | c3;
+  assign c1 = ~A & ~B &  D;
+  assign c2 =  B & ~C & ~D;
+  assign c3 = ~A &  C & ~D;
+  assign  F = c1 | c2 | c3;
 
 endmodule

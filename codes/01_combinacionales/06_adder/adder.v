@@ -2,6 +2,7 @@
 // Name: adder.v
 //
 // Simple signed adder
+
 module adder #(
   parameter Width = 32
 ) (

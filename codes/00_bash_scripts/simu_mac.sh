@@ -6,7 +6,7 @@ flag_v=false
 
 # Función para mostrar el mensaje de ayuda
 mostrar_ayuda() {
-    echo "Uso: simulation.sh <archivo> [opciones]"
+    echo "Uso: simu_mac.sh <archivo> [opciones]"
     echo "Opciones:"
     echo "    -v: Open wave viewer."
 }
@@ -44,6 +44,14 @@ vcd=".vcd"
 v_file="${archivo}${v}"
 vvp_file="${archivo}${vvp}"
 vcd_file="${archivo}${vcd}"
+
+# Verificar si el archivo existe
+if [[ ! -e $v_file ]]; then
+    echo "El archivo $v_file no existe."
+    mostrar_ayuda
+    read -p "Press enter to continue"
+    exit 1
+fi
 
 # Ejecutar comandos en secuencia
 echo "1. Compiling verilog code..."
