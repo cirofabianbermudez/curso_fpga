@@ -143,7 +143,7 @@ nav:
       - index.md
   - Getting started:
       - getting_started/index.md
-      - Scripts: getting_started/automate_scripts.md
+      - Scripts: getting_started/scripts.md
       - Bibliografía: getting_started/bibliography.md
       - FPGAs: getting_started/fpgas.md
       - Verilog Reference: getting_started/intro_verilog.md

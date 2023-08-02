@@ -4,14 +4,14 @@
 archivo=""
 flag_v=false
 
-# Función para mostrar el mensaje de ayuda
+# Funcion para mostrar el mensaje de ayuda
 mostrar_ayuda() {
     echo "Uso: simulation.sh <archivo> [opciones]"
     echo "Opciones:"
     echo "    -v: Open wave viewer."
 }
 
-# Procesar los argumentos de línea de comandos
+# Procesar los argumentos de linea de comandos
 while [[ $# -gt 0 ]]; do
     case $1 in
         -v) flag_v=true; shift;;
@@ -29,7 +29,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Verificar si se proporcionó el nombre del archivo
+# Verificar si se proporciono el nombre del archivo
 if [[ -z $archivo ]]; then
     echo "Debe especificar el nombre del archivo."
     mostrar_ayuda
@@ -51,7 +51,7 @@ iverilog -o $vvp_file $v_file
 echo "2. Runing simulation..."
 vvp $vvp_file
 
-# Acción dependiendo de la bandera
+# Accion dependiendo de la bandera
 if $flag_v; then
     echo "3. Opening wave viewer.."
     start gtkwave $vcd_file
