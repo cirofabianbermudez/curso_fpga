@@ -268,13 +268,17 @@ El código incluye dos sentencias de instanciación de módulos. La sintaxis sim
   .[port_name]([signal_name])
 );
 ```
+
+
+### 4.1 Conexión por nombre
+
 La primera parte de la declaración especifica qué componente se utiliza. El término `[module_name]` indica el nombre del módulo y el término `[instance_name]` proporciona un id único para una instancia. La segunda parte es la conexión de puertos, que indica las conexiones entre los puertos I/O de un módulo instanciado (el módulo de nivel inferior) y las señales externas utilizadas en el módulo actual (el módulo de nivel superior). Esta forma de asignación se conoce como conexión por nombre (_connection by name_). El orden de los pares puerto-nombre y señal-nombre no importa.
 
 El mapeo de puertos refleja las conexiones de un diagrama a bloques. La declaración de instanciación del componente representa un circuito encapsulado en una "caja negra" cuya función se define en otro módulo.
 
 Este ejemplo demuestra la estrecha relación que existe entre un diagrama de bloques y el código. El código es esencialmente una descripción textual de un esquema. 
 
-**Conexión por lista ordenada**
+### 4.2 Conexión por nombre conexión por lista ordenada
 
 Un esquema alternativo para asociar los puertos y las señales externas es la conexión por lista ordenada (_connection by ordered list_). En este esquema, los nombres de los puertos del módulo de nivel inferior se omiten y las señales del módulo de nivel superior se enumeran en el mismo orden que la declaración de puertos del módulo de nivel inferior. Con este esquema, las dos declaraciones de instanciación de módulos del comparador de 2 bits pueden reescribirse como:
 
@@ -284,59 +288,75 @@ eq1 eq_bit1_unit (a[1], b[1], e1);
 ```
 Aunque este esquema hace el código más compacto, es propenso a errores, especialmente para un módulo con muchos puertos I/O. Por ejemplo, si modificamos el código del módulo de nivel inferior y cambiamos el orden de dos puertos en la declaración de puertos, también habrá que corregir todos los módulos instanciados. Si esto se hace accidentalmente durante la edición del código, el orden alterado de los puertos puede no detectarse durante la síntesis y dar lugar a errores difíciles de encontrar. 
 
+
+
+## 5. Operadores
+
 <figure markdown>
-  <figcaption> <b>Tabla 3.</b> name .</figcaption>
+  <figcaption> <b>Tabla 4.</b> Operadores en Verilog.</figcaption>
+
 
 | Tipo de operación | Símbolo de operador	| Descripción	| Número de operandos	|
 | ---- | --------------------------- | ---- | ---- |
-| Aritméticos       | +                   | Suma           |                     |
-|                   | -                   | Resta          |                     |
-|                   | *                   | Multiplicación |                     |
-|                   | /                   |                |                     |
-|                   | %                   |                |                     |
-|                   | **                  |                |                     |
-|                   |                     |                |                     |
-|                   |                     | 	| 	|
-|  |  | | 	|
+| **Aritméticos**    | +                   | Suma                                                      | 2                   |
+|                    | -                   | Resta                                                     | 2                   |
+|                    | *                   | Multiplicación                                            | 2                   |
+|                    | /                   | División                                                  | 2                   |
+|                    | %                   | Módulo                                                    | 2                   |
+|                    | **                  | Exponenciación                                            | 2                   |
+| **Desplazamiento** | >>                  | Desplazamiento lógico a la derecha (llena con ceros)      | 2                   |
+|                    | <<                  | Desplazamiento lógico a la izquierda (llena con ceros) | 2	|
+|  | >>> | Desplazamiento aritmético a la derecha (mantiene signo) | 2	|
+|  | <<< | Desplazamiento aritmético a la izquierda (mantiene signo) | 2	|
+| **Relacional** | > | Mayor que | 2	|
+|  | < | Menor que | 2	|
+|  | >= | Mayor o igual que | 2	|
+|  | <= | Menor o igual que | 2	|
+| **Igualdad** | == | Igual | 2	|
+|  | != | Diferente | 2	|
+|  | === | Igualdad de casos | 2	|
+|  | !== | Desigualdad de casos | 2	|
+| **Bitwise** | ~ | Negación bitwise | 1	|
+|  | & | AND bitwise | 2	|
+|  | \| | OR bitwise | 2	|
+|  | ^ | XOR bitwise | 2	|
+| **Reducción** | & | Reducción AND | 1	|
+|  | \| | Reducción OR | 1	|
+|  | ^ | Reducción XOR | 1	|
+| **Lógicos** | ! | Negación lógica | 1	|
+|  | && | AND lógica | 2	|
+|  | \|\| | OR lógica | 2	|
+| **Concatenación** | { } | Concatenación | Cualquier	|
+|  | { { } } | Replicación | Cualquier	|
+| **Condicional** | ? : | Condicional | 3	|
 
 </figure>
 
-## Operadores
-
-- Los operadores unarios deben aparecer a la izquierda de su operando. 
-- Los operadores binarios aparecerán entre sus operandos. 
-- Un operador condicional debe tener dos caracteres de operador que separen tres operandos
 
 <figure markdown>
-  <figcaption> <b>Tabla 3.</b> name .</figcaption>
+  <figcaption> <b>Tabla 5.</b> Precedencia de los operadores .</figcaption>
 
-| Category     | Description	   | Usage	|
-| ---- | --------------------------- | ---- |
-| Bitwise  | $f = (a b)$            | 	|
-| Logical  | $f = (a b)$              | 	|
-| Rediction  | $f = (a b)$ | 	|
-| Relational  | $f = (a b)$           | 	|
-| Arithmetic  | $f = (a b)$           | 	|
-| Shift  | $f = (a b)$           | 	|
-| Concatenate  | $f = (a b)$           | 	|
-| Replication  | $f = (a b)$           | 	|
-| Condition  | $f = (a b)$           | 	|
+| Operador                      | Precedencia |
+| ----------------------------- | ----------- |
+| !    ~    +    -    (unarios) | más alto    |
+| **                            |             |
+| *    /    %                   |             |
+| +    -    (binario)           |             |
+| >>    <<    >>>    <<<        |             |
+| <    <=    >    >=            |             |
+| ==    !=    ===    !==        |             |
+| &                             |             |
+| ^                             |             |
+| \|                            |             |
+| &&                            |             |
+| \|\|                          |             |
+| ?:                            | más bajo    |
+
 
 </figure>
 
 
 
-## Modulos
-
-Verilog es un lenguaje tanto comportamental como  estructural. Los componentes internos de cada módulo pueden definirse en cuatro niveles de abstracción, en función de las necesidades del diseño.
-
-El módulo se comporta de forma idéntica con el entorno externo independientemente del nivel de abstracción en el que se describa el módulo. Las partes internas del módulo están ocultas al entorno. Así, el nivel de abstracción para describir un módulo puede cambiarse sin que se produzca ningún cambio en el entorno. Los niveles se definen a continuación.
-
-- Behavioral or algorithmic level
-:    Este es el nivel más alto de abstracción proporcionado por Verilog HDL. Un módulo puede implementarse en términos del algoritmo de diseño deseado sin preocuparse por los detalles de implementación del hardware. El diseño a este nivel es muy similar a la programación en C. 
-- Dataflow level
-- Gate leve
-- Switch level
 
 
 

@@ -165,14 +165,16 @@ nav:
       - 2. Secuenciales: 
           - documentacion/secuenciales/index.md
           - Flip-Flop: documentacion/secuenciales/flipflop.md
+          - Registros: documentacion/secuenciales/register.md
           - Contadores: documentacion/secuenciales/contador.md
-          - FSM Moore: documentacion/secuenciales/contador.md
-          - FSM Mealy: documentacion/secuenciales/contador.md
+          - FSM Moore: documentacion/secuenciales/fsm_moore.md
+          - FSM Mealy: documentacion/secuenciales/fsm_mealy.md
       - 3. Teoría:
           - documentacion/teoria/index.md
           - Punto Fijo: documentacion/teoria/fixed_point.md
           - SCM: documentacion/teoria/scm.md
   - Proyectos: 
       - proyectos/index.md
+      - RS232: proyectos/rs232.md
   - Blog:
       - blog/index.md
