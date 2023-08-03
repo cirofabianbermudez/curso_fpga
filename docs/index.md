@@ -3,6 +3,12 @@
 <figure markdown>
   ![Image title](imagenes/logo.png){ width="600" }
 </figure>
+
+<p align="center">
+<img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=github">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga">
+<img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=Profile%20views&color=0e75b6&style=flat" alt="cirofabianbermudez" />
+</p>
 ## Contibuciones
 Las contribuciones a este proyecto son bienvenidas en cualquier formato: informes de errores, comentarios, pull requests, etc.
 
