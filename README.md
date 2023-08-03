@@ -1,17 +1,16 @@
-<p align="center"><img width=90% src="logo/logo.png"></p>
 
+<p align="center"><img width=90% src="logo/logo.png"></p>
 
 <p align="center">
 <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=github">
 <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga">
-<img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=Profile%20views&color=0e75b6&style=flat" alt="cirofabianbermudez" />
+<img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=views&color=orange&style=flat" alt="cirofabianbermudez" />
 </p>
-## Resumen Básico
 
+## Documentación
 [Ir a documentación](https://cirofabianbermudez.com/curso_fpga/)
 
-
-## Colaboradores: 
+## Colaboradores
 - Julisa Verdejo Palacios
 - Alonso Contreras Guadalupe
 - Bermudez Marquez Ciro Fabian
