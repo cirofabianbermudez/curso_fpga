@@ -15,22 +15,22 @@ module piso_reg #(
 
   reg [n-1:0] d_mux, d_reg;
 	
-  always @(d, op, d) begin
+  always @(d, op, d_reg) begin
     case (op)
       2'b00 : d_mux = d_reg;
-      2'b01 : d_mux = din_i;
+      2'b01 : d_mux = d;
       2'b10 : d_mux = {d_reg[n-2:0],1'b0};
       default : d_mux = 0;
     endcase						   
   end	
 
-  always @(posedge clk_i, posedge rst_i) begin		
-    if (rst_i)
+  always @(posedge clk, posedge rst) begin		
+    if (rst)
       d_reg <= 0;
     else
       d_reg <= d_mux;	 
   end
 	
-  assign dout_o = d_reg[n-1];
+  assign q = d_reg[n-1];
 	
 endmodule

@@ -1,13 +1,9 @@
 <p align="center"><img width=90% src="logo/logo.png"></p>
 
-<div align="center">
 
-![GitHub repo size](https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga)
-![GitHub watchers](https://img.shields.io/github/watchers/cirofabianbermudez/curso_fpga)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=Github)
-
-</div>
-
+<p align="left"><img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/cirofabianbermudez/curso_fpga/main?logo=github"></p>
+<p align="left"><img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/cirofabianbermudez/curso_fpga"> </p>
+<p align="left"> <img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=Profile%20views&color=0e75b6&style=flat" alt="cirofabianbermudez" /> </p>
 
 
 ## Resumen Básico

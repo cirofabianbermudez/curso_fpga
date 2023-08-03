@@ -1,5 +1,5 @@
-// Author: Guadalupe Alonso Contreras
-// Name: cont_tb.v
+// Author: Ciro Fabian Bermudez Marquez
+// Name: conter_tb.v
 // Description: Testbench estimulos secuenciales.
 
 `timescale 1ns / 100 ps

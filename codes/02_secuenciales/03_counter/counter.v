@@ -6,10 +6,10 @@
 module counter #(
   parameter Width = 8
 ) (
-  input        clk,
-  input        rst,
-  output       max_tick
-  output [3:0] q
+  input              clk,
+  input              rst,
+  output             max_tick,
+  output [Width-1:0] q
 );
 
   reg  [Width-1:0] d_reg;

@@ -4,7 +4,7 @@
   ![Image title](imagenes/logo.png){ width="600" }
 </figure>
 ## Contibuciones
-Las contribuciones a este proyecto son bienvenidas en cualquier formato: informes de errores, comentarios, merge requests, etc.
+Las contribuciones a este proyecto son bienvenidas en cualquier formato: informes de errores, comentarios, pull requests, etc.
 
 ## Autores
 - Guadalupe Alonso Contreras - [LinkedIn](https://www.linkedin.com/in/guadalupe-alonso-b099811ab/) - [GitHub](https://github.com/GuadalupeAlonso)
