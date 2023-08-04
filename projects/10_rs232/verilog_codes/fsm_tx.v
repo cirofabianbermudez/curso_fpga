@@ -28,7 +28,7 @@ module fsm_tx (
 
   reg [3:0] present_state, next_state;
   
-  // Logica proxima 
+  // Logica proximo estado y decodificacion de salida
   always @(st_i, z_i, psel_i, present_state) begin
     next_state = present_state;
     case (present_state)
@@ -96,17 +96,16 @@ module fsm_tx (
              if (z_i)
                next_state = s0;
            end
-       default : begin     // regresar a S0 por default
-                   next_state = s0;
-                 end
+ default : begin // Regresar a S0 por default
+             next_state = s0;
+           end
     endcase	
   end
-
 
   // Registro de estado
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
-      present_state <= 0;
+      present_state <= s0;
     else
       present_state <= next_state;
   end
