@@ -1,11 +1,12 @@
 // Author: Ciro Fabian Bermudez Marquez
-// Name: d_ff_rst.v
+// Name: d_ff_rst_en.v
 //
-// Description: D flip flop with asynchronous reset
+// Description: D flip flop with asynchronous reset and enable
 
-module d_ff_rst (
+module d_ff_rst_en (
   input      clk_i,  
   input      rst_i, 
+  input      en_i,
   input      d_i,     
   output reg q_o      
 );
@@ -13,7 +14,7 @@ module d_ff_rst (
   always @(posedge clk_i, posedge rst_i) begin   
     if (rst_i)   
       q_o <= 1'b0;    
-    else 
+    else if (en_i)
       q_o <= d_i;     
   end
 

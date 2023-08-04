@@ -2,9 +2,9 @@
 
 ## 1. Automatizar Icarus Verilog
 
-Considere que se tiene un archivo llamado `mymodule.v` el cual contiene un diseño en Verilog y su respectivo archivo de simulación `mymodule_tb.v`. El flujo de trabajo en [Icarus Verilog](https://bleyer.org/icarus/) consiste en los siguientes pasos:
+Considere que se tienen dos archivos, uno llamado `mymodule.v`, el cual contiene un diseño en Verilog y otro llamado `mymodule_tb.v`, el cual se utiliza para simular el diseño. El flujo de trabajo en [Icarus Verilog](https://bleyer.org/icarus/) consiste en los siguientes pasos:
 
-1. Editar el módulo principal y el archivo de simulación.
+1. Editar el módulo principal o el archivo de simulación.
 2. Compilar el código con el comando:
 ``` plain linenums="1"
 iverilog -o mymodule_tb.vvp mymodule_tb.v
@@ -17,13 +17,13 @@ vvp mymodule.vvp
 ``` plain linenums="1"
 start gtkwave mymodule.vcd
 ```
-5. Insertar todas las señales de la simulación y  analizar su comportamiento.
+5. Insertar todas las señales necesarios en la simulación y analizar su comportamiento.
 
-El problema con la metodología anterior es que se necesitan realizar muchos pasos cada vez que se haga una pequeña modificación a los archivos `.v`. 
+El problema con la metodología anterior es que se necesitan realizar muchos pasos cada vez que se hace una pequeña modificación a los archivos `.v`. 
 
 Una manera para solventar esta problemática es guardar la simulación generada en GTKWave con la extensión `.gtkw`, después abrirla y recargar el archivo `.vcd`. No obstante aún es necesario compilar y ejecutar nuevamente el código cada vez que se realice un cambio.
 
-Para que este proceso repetitivo sea más sencillo se puede utilizar un script escrito en bash para redicir todo este proceso a una sola línea de comando, en la siguiente tabla se pueden abrir  y descargar los scripts para cada sistema operativo:
+Para que este proceso repetitivo sea más sencillo se puede utilizar un script escrito en bash para reducir todo este proceso a una sola línea de comando. En la siguiente tabla se muestran los scripts para cada sistema operativo:
 
 <figure markdown>
   <figcaption> <b>Tabla 1.</b> Scripts para automatizar compilación, ejecución y visualizador para Icarus Verilog y GTKWave escrito en lenguaje bash.</figcaption>
@@ -107,7 +107,6 @@ Opciones:
     -v: Open wave viewer.
 Press enter to continue
 ```
-
 
 
 

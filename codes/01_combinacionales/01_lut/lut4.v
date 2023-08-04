@@ -12,9 +12,9 @@ module lut4(
 );
 
   always @(A,B,C,D) begin
-    if ( ( A & ~B &  C &  D) | (A & B & ~C & D)  ) begin
+    if ( ( A & ~B &  C &  D) | (A & B & ~C & D)  )
       F = 1'b1;
-    end else begin
+    else 
       F = 1'b0;
     end
   end

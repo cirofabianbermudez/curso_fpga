@@ -5,10 +5,6 @@
 
 `timescale 1ns / 100 ps
 `include "lut1.v"
-`include "lut2.v"
-`include "lut3.v"
-`include "lut4.v"
-`include "lut5.v"
 
 module lut_tb();
   // Definición de señales de entrada y salida
@@ -20,10 +16,6 @@ module lut_tb();
 
   // Instanciacion del modulo
   lut1 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
-  //lut2 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
-  //lut3 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
-  //lut4 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
-  //lut5 dut(.A(A), .B(B), .C(C), .D(D), .F(F));
 
   // Variables para archivo, iteraciones y tiempo
   integer write_data;

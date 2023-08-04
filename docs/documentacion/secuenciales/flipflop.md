@@ -8,13 +8,37 @@
 --8<-- "codes/02_secuenciales/01_flipflop/d_ff.v:6"
 ```
 
-### 1.2. D Flip-Flop con reset asíncrono
+### 1.2. D Flip-Flop con reset
 
-``` verilog title="d_ff_rst.v" linenums="1"
---8<-- "codes/02_secuenciales/01_flipflop/d_ff_rst.v:6"
-```
+=== "Asincróno"
 
-### 1.3. D Flip-Flop con reset asíncrono y habilitación
-``` verilog title="d_ff_en_rst.v" linenums="1"
---8<-- "codes/02_secuenciales/01_flipflop/d_ff_en_rst.v:6"
-```
+    ``` verilog title="d_ff_rst.v" linenums="1"
+    --8<-- "codes/02_secuenciales/01_flipflop/d_ff_rst.v:6"
+    ```
+
+=== "Síncrono"
+
+    ``` verilog title="d_ff_rst_sync.v" linenums="1"
+    --8<-- "codes/02_secuenciales/01_flipflop/d_ff_rst_sync.v:6"
+    ```
+
+
+### 1.3. D Flip-Flop con reset y habilitación
+
+=== "Asincróno"
+
+    ``` verilog title="d_ff_rst_en.v" linenums="1"
+    --8<-- "codes/02_secuenciales/01_flipflop/d_ff_rst_en.v:6"
+    ```
+
+=== "Síncrono"
+
+    ``` verilog title="d_ff_rst_en_sync.v" linenums="1"
+    --8<-- "codes/02_secuenciales/01_flipflop/d_ff_rst_en_sync.v:6"
+    ```
+
+
+
+## 2. Verificación
+
+Proximamente ..

@@ -1,14 +1,13 @@
 # FPGAs
 
-## 2. FPGAs
 
-### 2.1. ¿Qué es una FPGA?
+## 1. ¿Qué es una FPGA?
 
-Las FPGAs (Field Programmable Gate Arrays) son circuitos integrados que permiten a los diseñadores programar lógica digital personalizada en el que la función puede definirse después de la fabricación. Una FPGA permite programar características y funciones de productos, adaptarse a nuevos estándares y reconfigurar el hardware para aplicaciones específicas incluso después de instalar el producto sobre el campo, de ahí el término programable sobre el terreno. Y las matrices de compuertas son matrices bidimensionales de compuertas lógicas. Si se juntan suficientes de estas cosas, se puede hacer que esos cálculos simples se sumen para hacer algo significativo.
-
+Las FPGAs (Field Programmable Gate Arrays) son circuitos integrados que permiten a los diseñadores programar lógica digital personalizada en el que la función puede definirse después de la fabricación. Una FPGA permite programar características y funciones de productos, adaptarse a nuevos estándares y reconfigurar el hardware para aplicaciones específicas incluso después de instalar el producto sobre el campo, de ahí el término programable sobre el campo. Y las matrices de compuertas son matrices bidimensionales de compuertas lógicas. Si se juntan suficientes de estas cosas, se puede hacer que esos cálculos simples se sumen para hacer algo significativo.
 
 
-### 2.2. ¿Qué FPGA elegir?
+
+## 2. ¿Qué FPGA elegir?
 
 En el mundo, existen cuatro destacadas compañías fabricantes de FPGAs: **AMD (Xilinx), Intel (Altera), Lattice** y **Microchip**. La cuota de mercado para el año 2021 se refleja en la siguiente gráfica:
 
@@ -41,10 +40,10 @@ pie showData
 
 <span style="color:#df2128">AMD (Xilinx)</span> domina casi la mitad del mercado con una participación del 51%, seguida por <span style="color:#0068b5">Intel (Altera)</span>, que cuenta con el 29%, <span style="color:#ffc221">Lattice</span> con un 7%, <span style="color:#999999">Microchip</span> con un 6%. El 7% restante se reparten <span style="color:#de87cd">Otros</span> competidores. 
 
-[Comparacion](https://www.terasic.com.tw/attachment/archive/1081/image/de10-standard-C.jpg)
+Debido a lo anterior es buena idea centrarse en aprender a utilizar FPGAs de XIlinx o de Altera. En la siguiente tabla se muestran algunas FPGAs que han tenido buena recepción en el mercado y las cuales se encuentran en la mayoría de laboratorios de diseño digital.
 
 <figure markdown>
-  <figcaption> <b>Tabla 2.</b> FPGAs recomendadas.</figcaption>
+  <figcaption> <b>Tabla 1.</b> FPGAs recomendadas.</figcaption>
 
 
 | FPGA                                                         | Logic Elementes | Clock Source | SoC/HPS | Empresa  | Precio  |

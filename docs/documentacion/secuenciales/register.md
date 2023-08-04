@@ -2,11 +2,19 @@
 
 ## 1. Códigos
 
-### 1.1. Registro con reset asíncrono (PIPO)
+### 1.1. Registro básico  (PIPO)
 
-``` verilog title="reg_rst.v" linenums="1"
---8<-- "codes/02_secuenciales/02_register/reg_rst.v:6"
-```
+=== "Con habilitación"
+
+    ``` verilog title="reg_rst_en.v" linenums="1"
+    --8<-- "codes/02_secuenciales/02_register/reg_rst_en.v:6"
+    ```
+
+=== "Sin habilitación"
+
+    ``` verilog title="reg_rst.v" linenums="1"
+    --8<-- "codes/02_secuenciales/02_register/reg_rst.v:6"
+    ```
 
 ### 1.2. Registro de corrimiento Serie-Paralelo (SIPO)
 
@@ -19,3 +27,7 @@
 ``` verilog title="piso_reg.v" linenums="1"
 --8<-- "codes/02_secuenciales/02_register/piso_reg.v:6"
 ```
+
+
+
+

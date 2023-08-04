@@ -40,13 +40,8 @@ $$
 --8<-- "codes/01_combinacionales/01_lut/lut2.v:6"
 ```
 
-### 1.3. Primitivas de Verilog
-Las compuertas pueden ser de más de dos entradas.
-``` verilog title="lut3.v" linenums="1"
---8<-- "codes/01_combinacionales/01_lut/lut3.v:6"
-```
-
-### 1.4. Mintérminos
+### 1.3. Mintérminos
+También se les conoce como suma de productos o SOP (Sum Of Products).
 
 <figure markdown>
   <figcaption> <b>Tabla 2.</b> Tabla de verdad.</figcaption>
@@ -59,11 +54,10 @@ Las compuertas pueden ser de más de dos entradas.
 
 </figure>
 
-También se les conoce como suma de productos o SOP (Sum Of Products).
 
 === "Versión 1"
 
-    ``` verilog title="lut4..v" linenums="1"
+    ``` verilog title="lut4.v" linenums="1"
     --8<-- "codes/01_combinacionales/01_lut/lut4.v:6"
     ```
 

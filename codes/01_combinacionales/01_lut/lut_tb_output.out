@@ -1,0 +1,16 @@
+Time =   20.00 ns, {A,B,C,D} = 0000, X = 0
+Time =   40.00 ns, {A,B,C,D} = 0001, X = 1
+Time =   60.00 ns, {A,B,C,D} = 0010, X = 1
+Time =   80.00 ns, {A,B,C,D} = 0011, X = 1
+Time =  100.00 ns, {A,B,C,D} = 0100, X = 1
+Time =  120.00 ns, {A,B,C,D} = 0101, X = 0
+Time =  140.00 ns, {A,B,C,D} = 0110, X = 1
+Time =  160.00 ns, {A,B,C,D} = 0111, X = 0
+Time =  180.00 ns, {A,B,C,D} = 1000, X = 0
+Time =  200.00 ns, {A,B,C,D} = 1001, X = 0
+Time =  220.00 ns, {A,B,C,D} = 1010, X = 0
+Time =  240.00 ns, {A,B,C,D} = 1011, X = 0
+Time =  260.00 ns, {A,B,C,D} = 1100, X = 1
+Time =  280.00 ns, {A,B,C,D} = 1101, X = 0
+Time =  300.00 ns, {A,B,C,D} = 1110, X = 0
+Time =  320.00 ns, {A,B,C,D} = 1111, X = 0

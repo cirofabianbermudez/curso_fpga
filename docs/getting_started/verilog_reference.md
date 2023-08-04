@@ -1,10 +1,12 @@
 # Verilog Reference
 
+En esta sección se presenta un resumen de las conceptos básicos que son necesarios saber cuando se trabaja con Verilog.
+
 ## 1. Comentarios
 - Los comentarios cortos empizan con `//` y continuan hasta el final de la línea.
 - Los comentarios largos empiezan con `/*` y terminan con `*/`.
 
-## 2. Tipos de dato
+## 2. Tipos de datos
 
 ### 2.1. Sistema de cuatro valores
 En la mayoría de los tipos de datos se utilizan cuatro valores básicos:

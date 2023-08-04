@@ -166,7 +166,7 @@ nav:
           - documentacion/secuenciales/index.md
           - Flip-Flop: documentacion/secuenciales/flipflop.md
           - Registros: documentacion/secuenciales/register.md
-          - Contadores: documentacion/secuenciales/contador.md
+          - Contadores: documentacion/secuenciales/counter.md
           - FSM Moore: documentacion/secuenciales/fsm_moore.md
           - FSM Mealy: documentacion/secuenciales/fsm_mealy.md
       - 3. Teoría:

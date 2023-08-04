@@ -1,41 +1,47 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: conter_tb.v
+//
 // Description: Testbench estimulos secuenciales.
 
 `timescale 1ns / 100 ps
-`include "cont.v"
+`include "counter.v"
 
-module cont_tb();
+module counter_tb #(
+  parameter Width = 4
+)();
   // Definición de señales de entrada y salida
   reg clk;
-  reg reset;
-  reg en;
-
-  wire [3:0] cnt;
+  reg rst;
+  wire max_tick;
+  wire [Width-1:0] q;
 
   // Instanciacion del modulo
-  cont dut(.clk(clk), .reset(reset), .en(en), .cnt(cnt));
+  counter #(.Width(Width)) dut (
+    .clk_i(clk),
+    .rst_i(rst), 
+    .max_tick_i(max_tick), 
+    .q_o(q)
+  );
 
   // Generador de reloj de 100 MHz con duty-cycle de 50 %
   always #5 clk = ~clk;
 
-  // Secuencia de reset
-  	// Generador de se�al de reloj y reset
+  // Secuancia de reset
   initial begin
-    clk = 0; reset = 1; en = 0; #10;
-             reset = 0;         #10;
+    clk = 0; rst = 1; #10;
+             rst = 0; #10;
   end
 
   initial begin
     // Configuracion de archivos de salida
-    $dumpfile("cont_tb.vcd");   //guarda lo que compila
-    $dumpvars(0,cont_tb);     //selecciona variable que salen
+    $dumpfile("counter_tb.vcd");
+    $dumpvars(0,counter_tb);
+    
+    // Sincronizacion
     #30;
 
     //Estimulos de prueba
-    en = 1; #(10*15);       //(10*15) porque necesitamos 10ns durante 15 ciclos
-    en = 0; #50;
-
+    #300;
 
     $display("Test completed");
     $finish;
