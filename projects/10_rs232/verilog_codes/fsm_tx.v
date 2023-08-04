@@ -31,6 +31,7 @@ module fsm_tx (
   // Logica proximo estado y decodificacion de salida
   always @(st_i, z_i, psel_i, present_state) begin
     next_state = present_state;
+    sel_o = 4'b0000; eot_o = 1'b0;
     case (present_state)
       s0 : begin // Wait y stop bit
              sel_o = 4'b0000; eot_o = 1'b1;
