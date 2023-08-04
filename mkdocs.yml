@@ -175,6 +175,6 @@ nav:
           - SCM: documentacion/teoria/scm.md
   - Proyectos: 
       - proyectos/index.md
-      - RS232: proyectos/rs232.md
+      - RS232: proyectos/10_rs232/rs232.md
   - Blog:
       - blog/index.md

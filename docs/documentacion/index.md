@@ -13,9 +13,9 @@
 
 - [2. Secuencial](secuenciales/index.md)
     - [2.1. Flip-Flops](secuenciales/flipflop.md)
-    - [2.2. Contadores](secuenciales/contador.md)
-    - [2.3. FSM Moore](secuenciales/contador.md)
-    - [2.4. FSM Mealy](secuenciales/contador.md)
+    - [2.2. Contadores](secuenciales/counter.md)
+    - [2.3. FSM Moore](secuenciales/counter.md)
+    - [2.4. FSM Mealy](secuenciales/counter.md)
 
 - [3. Teoría](teoria/index.md)
     - [3.1. Punto Fijo](teoria/fixed_point.md)

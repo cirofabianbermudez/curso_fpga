@@ -198,7 +198,7 @@ vvp lut_tb.vvp
 start gtkwave lut_tb.vcd
 ```
 6. Dentro de GTKWave desplegar `lut_tb`, después dar clic en `dut` y en la sección `Signals` seleccionar las señales `A`, `B`, `C` y `F`, manteniendo presionada la tecla ++ctrl++ y seleccionando con el ++lbutton++ del mouse.
- 
+
 
 ???+ note "Nota 4."
     Para aprender a automatizar este proceso utilizando un script escrito en lenguaje bash ver la sección [Scrits](scripts.md).
@@ -214,9 +214,10 @@ Dentro de la carpeta se generará un archivo con el nombre `lut_tb_output.txt` q
 y la forma de onda debe ser igual a la mostrada en la siguiente imagen:
 
 <figure markdown>
-  ![Image title](../imagenes/00_test_simulation.png){ width="700" }
+  ![Image title](imagenes/00_test_simulation.png){ width="700" }
   <figcaption><b>Figura 1.</b> Resultados de simulación en GTKWave.</figcaption>
 </figure>
+
 
 
 

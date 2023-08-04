@@ -3,7 +3,7 @@
 
 
 <figure markdown>
-  ![Image title](../../imagenes/fsm.png){ width="600" }
+  ![Image title](imagenes/fsm.png){ width="600" }
 </figure>
 
 
