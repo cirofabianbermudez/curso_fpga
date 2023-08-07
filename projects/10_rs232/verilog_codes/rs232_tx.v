@@ -8,7 +8,7 @@ module rs232_tx #(
 ) (
   input              clk_i,  // Reloj del sistema
   input              rst_i,  // Reset del sistema
-  input              st_i,   // Strat
+  input              st_i,   // Start
   input        [7:0] d_i,    // Datos de entrada
   input  [Width-1:0] baud_i, // Selector de paridad
   input              psel_i, // Selector de paridad
@@ -27,7 +27,7 @@ module rs232_tx #(
     .tx_o(tx_o)
   );
   
-  parity  mod_parity (
+  parity mod_parity (
     .d_i(d_i), 
     .p_o(p)
   );

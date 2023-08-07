@@ -35,7 +35,7 @@ module fsm_tx (
     case (present_state)
       s0 : begin // Wait y stop bit
              sel_o = 4'b0000; eot_o = 1'b1;
-             if(st_i)
+             if (st_i)
                next_state = s1;
            end
       s1 : begin // Sincronizacion
