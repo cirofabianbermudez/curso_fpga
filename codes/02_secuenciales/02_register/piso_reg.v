@@ -1,7 +1,7 @@
-// Author: Ciro Fabian Bermudez Marquez
+// Author: Julisa Verdejo Palacios
 // Name: piso_reg.v
 //
-// Description: Paralel In Serial Out register
+// Description: Parallel In - Serial Out register
 
 module piso_reg #(
   parameter Width = 8	
@@ -13,24 +13,24 @@ module piso_reg #(
   output            q_o
 );	
 
-  reg [Width-1:0] d_mux, d_reg;
+  reg [Width-1:0] mux_d, reg_q;
 	
-  always @(d_i, op_i, d_reg) begin
+  always @(d_i, op_i, reg_q) begin
     case (op_i)
-      2'b00   : d_mux = d_reg;
-      2'b01   : d_mux = d_i;
-      2'b10   : d_mux = {d_reg[Width-2:0],1'b0};
-      default : d_mux = 0;
+      2'b00   : mux_d = reg_q;
+      2'b01   : mux_d = d_i;
+      2'b10   : mux_d = {reg_q[Width-2:0], 1'b0};
+      default : mux_d = 0;
     endcase
   end	
 
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
-      d_reg <= 0;
+      reg_q <= 0;
     else
-      d_reg <= d_mux;	 
+      reg_q <= mux_d;	 
   end
 
-  assign q_o = d_reg[Width-1];
+  assign q_o = reg_q[Width-1];
 
 endmodule

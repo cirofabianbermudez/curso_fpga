@@ -1,8 +1,7 @@
-// Author: Ciro Fabian Bermudez Marquez
+// Author: Julisa Verdejo Palacios
 // Name: sipo_reg.v
 //
-// Description: Serial In Paralel Out Reg
-
+// Description: Serial In - Parallel Out register
 
 module sipo_reg #(
   parameter Width = 8
@@ -14,18 +13,18 @@ module sipo_reg #(
   output [Width-1:0] q_o
 );	
 
-  reg  [Width-1:0] d_reg;
-  wire [Width-1:0] mux_out;
+  reg  [Width-1:0] reg_q;
+  wire [Width-1:0] mux_d;
 
-  assign mux_out = (en_i) ? {d_reg[Width-2:0], d_i} : d_reg;
+  assign mux_d = (en_i) ? {reg_q[Width-2:0], d_i} : reg_q;
 
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
-      d_reg <= 0;
+      reg_q <= 0;
     else
-      d_reg <= d_mux;
+      reg_q <= mux_d;
   end
 
-  assign q_o = d_reg;
+  assign q_o = reg_q;
   
 endmodule
