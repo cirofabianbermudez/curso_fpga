@@ -6,8 +6,8 @@
 module piso_reg #(
   parameter Width = 8	
 ) (
-  input 		        rst_i,
-  input 		        clk_i,
+  input             rst_i,
+  input             clk_i,
   input [Width-1:0] d_i,
   input       [1:0] op_i,
   output            q_o
@@ -24,7 +24,7 @@ module piso_reg #(
     endcase
   end	
 
-  always @(posedge clk_i, posedge rst_i) begin		
+  always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
       d_reg <= 0;
     else
