@@ -1,7 +1,7 @@
 // Author: Julisa Verdejo Palacios
 // Name: piso_reg.v
 //
-// Description: Parallel In - Serial Out register
+// Description: Parallel In - Serial Out to the left register 
 
 module piso_reg #(
   parameter Width = 8	
