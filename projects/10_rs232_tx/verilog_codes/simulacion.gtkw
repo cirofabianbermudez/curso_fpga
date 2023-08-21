@@ -1,0 +1,38 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Aug 21 00:33:32 2023
+[*]
+[dumpfile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\10_rs232_tx\verilog_codes\rs232_tx_tb.vcd"
+[dumpfile_mtime] "Mon Aug 21 00:30:56 2023"
+[dumpfile_size] 19493278
+[savefile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\10_rs232_tx\verilog_codes\simulacion.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-29.509232 118000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] rs232_tx_tb.
+[treeopen] rs232_tx_tb.dut.
+[sst_width] 211
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 154
+@22
+rs232_tx_tb.baud[14:0]
+@28
+rs232_tx_tb.clk
+rs232_tx_tb.d[7:0]
+[color] 7
+rs232_tx_tb.eot
+rs232_tx_tb.psel
+rs232_tx_tb.rst
+@29
+[color] 3
+rs232_tx_tb.sttx
+@28
+rs232_tx_tb.dut.mod_clk_div_tx.z_o
+[color] 2
+rs232_tx_tb.tx
+@22
+rs232_tx_tb.dut.mod_fsm_tx.present_state[3:0]
+[pattern_trace] 1
+[pattern_trace] 0

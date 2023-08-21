@@ -4,9 +4,9 @@
 // Description: Maquina de estados de la transmision
 
 module fsm_tx (
-  input            clk_i,   // Reloj del sistema
   input            rst_i,   // Reset del sistema
-  input            st_i,    // Start
+  input            clk_i,   // Reloj del sistema
+  input            sttx_i,  // Start
   input            z_i,     // Base de tiempo
   input            psel_i,  // Selector de paridad
   output reg [3:0] sel_o,   // Habilitador de mux
@@ -29,13 +29,13 @@ module fsm_tx (
   reg [3:0] present_state, next_state;
   
   // Logica proximo estado y decodificacion de salida
-  always @(st_i, z_i, psel_i, present_state) begin
+  always @(sttx_i, z_i, psel_i, present_state) begin
     next_state = present_state;
     sel_o = 4'b0000; eot_o = 1'b0;
     case (present_state)
       s0 : begin // Wait y stop bit
              sel_o = 4'b0000; eot_o = 1'b1;
-             if (st_i)
+             if (sttx_i)
                next_state = s1;
            end
       s1 : begin // Sincronizacion

@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Mon Aug 21 02:19:22 2023
+[*]
+[dumpfile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\12_single_tick\verilog_codes\single_tick_tb.vcd"
+[dumpfile_mtime] "Mon Aug 21 02:08:59 2023"
+[dumpfile_size] 135663
+[savefile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\12_single_tick\verilog_codes\simulation.gtkw"
+[timestart] 9006000
+[size] 1536 801
+[pos] -1 -1
+*-19.016945 10075000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] single_tick_tb.
+[treeopen] single_tick_tb.dut.
+[sst_width] 211
+[signals_width] 199
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+single_tick_tb.button
+single_tick_tb.dut.mod_clk_div_tick.z_o
+@421
+single_tick_tb.dut.mod_clk_div_tick.reg_q[29:0]
+@28
+single_tick_tb.clk
+@22
+single_tick_tb.k[29:0]
+@28
+single_tick_tb.rst
+single_tick_tb.start
+@24
+single_tick_tb.dut.mod_fsm_tick.present_state[1:0]
+[pattern_trace] 1
+[pattern_trace] 0
