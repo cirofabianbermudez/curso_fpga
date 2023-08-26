@@ -1,36 +1,34 @@
 // Author: Julisa Verdejo Palacios
 // Name: counter_rx.v
 //
-// Description: Contador para llevar registro de los bits recibidos.
+// Description: 
 
 module counter_rx #(
-  parameter Width = 4
+  parameter Width = 15
 ) (
-  input               rst_i,
-  input               clk_i,
-  input        [1:0]  opc_i,
-  output [Width-1:0]  cnt_o
+  input              rst_i,
+  input              clk_i,
+  input              en_i,
+  input  [Width-1:0] vmax_i,
+  output             flag_o
 );
+  
+  reg  [Width-1:0] reg_q;
+  wire [Width-1:0] mux1;
+  wire [Width-1:0] mux2_d;
+  wire             comp;
 
-  reg [Width-1:0] mux_d, reg_q;
-
-  always @(opc_i, reg_q) begin
-    case (opc_i)
-      2'b00 : mux_d = 0;
-      2'b01 : mux_d = reg_q;
-      2'b10 : mux_d = reg_q + 1;
-      2'b11 : mux_d = reg_q;
-      default : mux_d = 0;
-    endcase
-  end
-
+  assign mux2_d  = (en_i) ? mux1 : reg_q;
+  assign mux1 = (comp) ? 0 : reg_q + 1;
+  
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
       reg_q <= 0;
     else
-      reg_q <= mux_d;
+      reg_q <= mux2_d;    
   end
 
-  assign cnt_o = reg_q;
-
+  assign comp = (reg_q == vmax_i) ? 1'b1 : 1'b0;
+  assign flag_o = comp;
+  
 endmodule
