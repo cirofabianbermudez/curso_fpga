@@ -12,6 +12,7 @@ module rs232_rx (
   output  [7:0] dout_o,
   output        pcheck_o,
   output        eor_o
+  //output [3:0] estado_o
 );
 
   // Habilitadores
@@ -87,6 +88,7 @@ module rs232_rx (
     .en_cnt_o(en_cnt),
     .en_pipo_o(en_pipo),  
     .eor_o(eor_o)
+    //.estado_o(estado_o)
   );
 
 endmodule
