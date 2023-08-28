@@ -76,8 +76,12 @@ module fsm_rx (
       s8 : begin
              {en_baud_o, en_sipo_o, en_cnt_o, en_pipo_o, eor_o} = 5'b00000;
              if (rx_i)
-               next_state = s0;
+               next_state = 4'b1001;
            end
+     default : begin
+                 {en_baud_o, en_sipo_o, en_cnt_o, en_pipo_o, eor_o} = 5'b00000;
+                 next_state = s0;
+               end
     endcase 
   end
 
