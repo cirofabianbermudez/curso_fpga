@@ -1,6 +1,6 @@
 # FPGA Design with Verilog
 
-<p align="center"><img width=90% src="../imagenes/logo.png"></p>
+<p align="center"><img width=90% src="imagenes/logo.png"></p>
 
 <p align="center">
 <img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=views&color=red&style=flat" alt="cirofabianbermudez" />
