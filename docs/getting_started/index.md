@@ -17,7 +17,8 @@ Existen diversas plataformas para trabajar con Verilog, entre las más populares
 sin embargo, a pesar de que todas estas opciones cuentan con sus versiones gratuitas, no todas están disponibles en todos los sistemas operativos, en la siguiente tabla se muestran las diferentes compatibilidades:
 
 <figure markdown>
-  <figcaption> <b>Tabla 1.</b> Compabilidad en diferentes sistemas operativos.</figcaption>
+
+<figcaption> <b>Tabla 1.</b> Compabilidad en diferentes sistemas operativos.</figcaption>
 
 | Software                                                     | Linux | Windows | Mac  |
 | ------------------------------------------------------------ | :---: | :-----: | :--: |

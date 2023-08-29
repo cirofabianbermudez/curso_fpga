@@ -1,5 +1,5 @@
 
-<p align="center"><img width=90% src="logo/logo.png"></p>
+<p align="center"><img width=90% src="docs/imagenes/logo.png"></p>
 
 <p align="center">
 <img src="https://komarev.com/ghpvc/?username=cirofabianbermudez&label=views&color=red&style=flat" alt="cirofabianbermudez" />
