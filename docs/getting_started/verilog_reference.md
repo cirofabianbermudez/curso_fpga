@@ -1,9 +1,9 @@
 # Verilog Reference
 
-En esta sección se presenta un resumen de las conceptos básicos que son necesarios saber cuando se trabaja con Verilog.
+Este es un resumen de fundamentos básicos de Verilog extraído de los libros [^1] [^2] [^3].
 
 ## 1. Comentarios
-- Los comentarios cortos empizan con `//` y continuan hasta el final de la línea.
+- Los comentarios cortos empiezan con `//` y continúan hasta el final de la línea.
 - Los comentarios largos empiezan con `/*` y terminan con `*/`.
 
 ## 2. Tipos de datos

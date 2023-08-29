@@ -1,23 +1,30 @@
 #!/bin/bash
-
 # Variables predeterminadas
 archivo=""
 flag_v=false
+flag_c=false
+flag_r=false
 
-# Función para mostrar el mensaje de ayuda
+# Funcion para mostrar el mensaje de ayuda
 mostrar_ayuda() {
-    echo "Uso: simu_mac.sh <archivo> [opciones]"
-    echo "Opciones:"
-    echo "    -v: Open wave viewer."
+    echo "Use: simu_mac.sh <file> [options]"
+    echo "Options:"
+    echo "  none: Compile, simulate and open viewer."
+    echo "    -c: Just compile code."
+    echo "    -r: Just run simulation."
+    echo "    -v: Just open wave viewer."
+    echo "It is possible to use more than one option at the same time."
 }
 
-# Procesar los argumentos de línea de comandos
+# Procesar los argumentos de linea de comandos
 while [[ $# -gt 0 ]]; do
     case $1 in
         -v) flag_v=true; shift;;
+        -c) flag_c=true; shift;;
+        -r) flag_r=true; shift;;
          *)
              if [[ $1 == -* ]]; then
-                echo "Opción inválida: $1"
+                echo "Invalid option: $1"
                 mostrar_ayuda
                 read -p "Press enter to continue"
                 exit 1
@@ -29,9 +36,9 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Verificar si se proporcionó el nombre del archivo
+# Verificar si se proporciono el nombre del archivo
 if [[ -z $archivo ]]; then
-    echo "Debe especificar el nombre del archivo."
+    echo "You must specify the file name."
     mostrar_ayuda
     read -p "Press enter to continue"
     exit 1
@@ -47,22 +54,46 @@ vcd_file="${archivo}${vcd}"
 
 # Verificar si el archivo existe
 if [[ ! -e $v_file ]]; then
-    echo "El archivo $v_file no existe."
+    echo "The file $v_file does not exit."
     mostrar_ayuda
     read -p "Press enter to continue"
     exit 1
 fi
 
 # Ejecutar comandos en secuencia
-echo "1. Compiling verilog code..."
-iverilog -o $vvp_file $v_file
-echo "2. Runing simulation..."
-vvp $vvp_file
 
-# Acción dependiendo de la bandera
-if $flag_v; then
+# Calcular tiempo
+TIMEFORMAT='It took %R seconds.'
+time {
+
+# Accion dependiendo de ninguna bandera activa
+if [[ $flag_c = false && $flag_r = false &&  $flag_v = false ]]; then
+    echo "1. Compiling verilog code..."
+    iverilog -o $vvp_file $v_file
+    echo "2. Runing simulation..."
+    vvp $vvp_file
     echo "3. Opening wave viewer.."
-    open -a gtkwave $vcd_file
+    start gtkwave $vcd_file
+    
 fi
 
+# Accion dependiendo de la bandera -c
+if [[ $flag_c = true ]]; then
+    echo "1. Compiling verilog code..."
+    iverilog -o $vvp_file $v_file
+fi
+
+# Accion dependiendo de la bandera -s
+if [[ $flag_r = true ]]; then
+    echo "2. Runing simulation..."
+    vvp $vvp_file
+fi
+
+# Accion dependiendo de la bandera -v
+if [[ $flag_v = true ]]; then
+    echo "3. Opening wave viewer.."
+    open gtkwave $vcd_file
+fi
+
+}
 read -p "Press enter to continue"

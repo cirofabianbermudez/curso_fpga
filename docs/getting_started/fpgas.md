@@ -1,4 +1,4 @@
-# FPGAs
+# FPGA
 
 
 ## 1. ¿Qué es una FPGA?
@@ -14,10 +14,10 @@ En el mundo, existen cuatro destacadas compañías fabricantes de FPGAs: **AMD (
 
 <figure markdown>
   ![Image title](imagenes/01_graph.png){ width="700" }
-  <figcaption><b>Figura 1.</b> Cuota de mercado de fabricantes de FPGA..</figcaption>
+  <figcaption><b>Figura 1.</b> Cuota de mercado de fabricantes de FPGA 2021.</figcaption>
 </figure>
 
-<span style="color:#df2128">AMD (Xilinx)</span> domina casi la mitad del mercado con una participación del 51%, seguida por <span style="color:#0068b5">Intel (Altera)</span>, que cuenta con el 29%, <span style="color:#ffc221">Lattice</span> con un 7%, <span style="color:#999999">Microchip</span> con un 6%. El 7% restante se reparten <span style="color:#de87cd">Otros</span> competidores. 
+<span style="color:#df2128">AMD (Xilinx)</span> domina casi la mitad del mercado con una participación del 51%, seguida por <span style="color:#0068b5">Intel (Altera)</span>, que cuenta con el 29%, <span style="color:#ffc221">Lattice</span> con un 7%, <span style="color:#999999">Microchip</span> con un 6%. El 7% restante se reparten <span style="color:#de87cd">Otros</span> competidores. [^1]
 
 Debido a lo anterior es buena idea centrarse en aprender a utilizar FPGAs de XIlinx o de Altera. En la siguiente tabla se muestran algunas FPGAs que han tenido buena recepción en el mercado y las cuales se encuentran en la mayoría de laboratorios de diseño digital.
 
@@ -37,6 +37,11 @@ Debido a lo anterior es buena idea centrarse en aprender a utilizar FPGAs de XIl
 </figure>
 
 
+
+## 3. Referencias
+
+[^1]: drex, “Lattice Avant of Mid-Range FPGAs May Be the Biggest Winner”, DRex Electronics, el 7 de febrero de 2023. <https://www.icdrex.com/lattice-avant-of-mid-range-fpgas-may-be-the-biggest-winner/> (consultado el 05 de agosto de 2023).
+[^2]: “FPGA Insights and Trends 2023: Unleashing the Power of FPGA”, Design And Reuse. <https://www.design-reuse.com/industryexpertblogs/54476/fpga-insights-and-trends-2023-unleashing-the-power-of-fpga.html> (consultado el 06 de agosto de 2023).
 
 
 

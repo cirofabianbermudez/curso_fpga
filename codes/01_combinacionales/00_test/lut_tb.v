@@ -33,7 +33,7 @@ module lut_tb();
     $timeformat(-9, 2, " ns", 10);
 
     // Simular todas las combinaciones posibles
-    for (i = 0; i < 8; i++) begin
+    for (i = 0; i < 8; i = i + 1) begin
         {A,B,C} = i; #20; t = $time;
         $fdisplay(write_data,"Time = %t, {A,B,C} = %b, X = %b", t, {A,B,C}, F);
     end

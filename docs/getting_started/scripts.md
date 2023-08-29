@@ -32,7 +32,7 @@ Para que este proceso repetitivo sea más sencillo se puede utilizar un script e
 | Plataforma  |                            Enlace                            | Probada |
 | ----------- | :----------------------------------------------------------: | :-----: |
 | **Windows** | [simu_wind.sh](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/00_bash_scripts/simu_wind.sh) |    ✓    |
-| **Linux**   | [simu_linux.sh](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/00_bash_scripts/simu_linux.sh) |         |
+| **Linux**   | [simu_linux.sh](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/00_bash_scripts/simu_linux.sh) |    ✓    |
 | **Mac**     | [simu_mac.sh](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/00_bash_scripts/simu_mac.sh) |    ✓    |
 
 </figure>
@@ -65,12 +65,12 @@ Comandos:
 Comandos:
 ``` plain linenums="1"
 source simu_mac.sh mymodule_tb
-Source simu_mac.sh mymodule_tb -v
+source simu_mac.sh mymodule_tb -v
 ```
 
 ## 2. Ejemplo de uso del script
 
-Para compilar y ejecutar el testbench se utiliza el siguiente comando:
+Para compilar y ejecutar el testbench y  abrir el visualizador de onda se utiliza el siguiente comando:
 ``` plain linenums="1"
 ./simu_wind.sh mymodule_tb
 ```
@@ -83,30 +83,48 @@ Una vez ejecutado el comando se desplegará una consola de Git Bash con la sigui
 VCD info: dumpfile mymodule_tb.vcd opened for output.
 Test completed
 mymodule_tb.v:46: $finish called at xxxx (xxps)
+3. Opening wave viewer..
+It took 0.223 seconds.
 Press enter to continue
 ```
-Para compilar, ejecutar el testbench y abrir el visualizador de onda se le añade al comando la bandera `-v` de la siguiente manera:
+
+### 2.1. Uso de banderas
+
+Para solo compilar se le añade al comando la bandera `-c` de la siguiente manera:
+``` plain linenums="1"
+./simu_wind.sh mymodule_tb -c
+```
+
+Para solo ejecutar el archivo compilado se le añade al comando la bandera `-r` de la siguiente manera:
+``` plain linenums="1"
+./simu_wind.sh mymodule_tb -r
+```
+
+Se pueden combinar las banderas para hacer dos cosas al mismo tiempo de la siguiente manera:
+``` plain linenums="1"
+./simu_wind.sh mymodule_tb -c -r
+```
+
+Para solo abrir el visualizador de forma de onda se le añade al comando la bandera `-v` de la siguiente manera:
 ``` plain linenums="1"
 ./simu_wind.sh mymodule_tb -v
 ```
-Una vez ejecutado el comando se desplegará una consola de Git Bash con la siguiente información:
-``` plain linenums="1"
-1. Compiling verilog code...
-2. Runing simulation...
-VCD info: dumpfile mymodule_tb.vcd opened for output.
-Test completed
-mymodule_tb.v:46: $finish called at xxxx (xxps)
-3. Opening wave viewer..
-Press enter to continue
-```
+
+### 2.2. Manejo de errores
 Si se ingresa una bandera equivocada al programa, no se ingresa el nombre del archivo o el archivo no existe se desplegará un mensaje de error como el siguiente:
 ``` plain linenums="1"
-Opción inválida: -f
-Uso: simu_wind.sh <archivo> [opciones]
-Opciones:
-    -v: Open wave viewer.
+You must specify the file name.
+Use: simu_wind.sh <file> [options]
+Options:
+  none: Compile, simulate and open viewer.
+    -c: Just compile code.
+    -r: Just run simulation.
+    -v: Just open wave viewer.
+It is possible to use more than one option at the same time.
 Press enter to continue
 ```
 
+## 3. Referencias
 
+[^1]:  “Bash Scripting Tutorial – Linux Shell Script and Command Line for Beginners”, freeCodeCamp.org, el 20 de marzo de 2023.<https://www.freecodecamp.org/news/bash-scripting-tutorial-linux-shell-script-and-command-line-for-beginners/> (consultado el 05 de agosto de 2023).
 
