@@ -13,6 +13,7 @@ mostrar_ayuda() {
     echo "    -c: Just compile code."
     echo "    -r: Just run simulation."
     echo "    -v: Just open wave viewer."
+    echo "It is possible to use more than one option at the same time."
 }
 
 # Procesar los argumentos de linea de comandos
@@ -37,7 +38,7 @@ done
 
 # Verificar si se proporciono el nombre del archivo
 if [[ -z $archivo ]]; then
-    echo "Debe especificar el nombre del archivo."
+    echo "You must specify the file name."
     mostrar_ayuda
     read -p "Press enter to continue"
     exit 1
@@ -53,7 +54,7 @@ vcd_file="${archivo}${vcd}"
 
 # Verificar si el archivo existe
 if [[ ! -e $v_file ]]; then
-    echo "El archivo $v_file no existe."
+    echo "The file $v_file does not exit."
     mostrar_ayuda
     read -p "Press enter to continue"
     exit 1

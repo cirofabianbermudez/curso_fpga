@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Wed Aug 30 01:53:45 2023
+[*]
+[dumpfile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\15_rs232_book\receiver\rs232_rx_tb.vcd"
+[dumpfile_mtime] "Wed Aug 30 01:53:25 2023"
+[dumpfile_size] 6556085
+[savefile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\15_rs232_book\receiver\simulation.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -1 -1
+*-28.676456 560710000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] rs232_rx_tb.
+[treeopen] rs232_rx_tb.dut.
+[sst_width] 211
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+rs232_rx_tb.clk
+rs232_rx_tb.dout[7:0]
+rs232_rx_tb.eor
+rs232_rx_tb.rst
+rs232_rx_tb.rx
+rs232_rx_tb.dut.mod_mod_m_counter.max_tick_o
+@29
+rs232_rx_tb.dut.mod_receiver.state_reg[1:0]
+@22
+rs232_rx_tb.dut.mod_receiver.b_reg[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
