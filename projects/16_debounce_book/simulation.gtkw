@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu Aug 31 00:12:39 2023
+[*]
+[dumpfile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\16_debounce_book\debounce_tb.vcd"
+[dumpfile_mtime] "Thu Aug 31 00:10:23 2023"
+[dumpfile_size] 534149626
+[savefile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\16_debounce_book\simulation.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-26.070967 174400000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] debounce_tb.
+[sst_width] 211
+[signals_width] 192
+[sst_expanded] 1
+[sst_vpaned_height] 154
+@28
+debounce_tb.clk
+@420
+debounce_tb.clk_cycle
+@28
+debounce_tb.db_level
+debounce_tb.db_tick
+debounce_tb.rst
+debounce_tb.sw
+@29
+debounce_tb.dut.state_reg[1:0]
+[pattern_trace] 1
+[pattern_trace] 0
