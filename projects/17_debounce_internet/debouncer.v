@@ -1,7 +1,7 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: .v
 //
-// Description: 
+// Description:
 
 module debouncer (
   input  clk_i,
@@ -17,7 +17,7 @@ module debouncer (
   reg  [1:0] ff_i;
   reg        ff_o;
   reg [25:0] counter; // more than enough for most frequencies
-
+  reg [25:0] counter_next;
   wire clear_counter;
   wire counter_max;
   
@@ -25,27 +25,23 @@ module debouncer (
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i) begin
       ff_i <= 0;
+      counter <= 0;
     end else begin
       ff_i[1:0] <= {ff_i[0], sw_i};
+      counter <= counter_next;
     end
   end
 
   assign clear_counter = ^ff_i;
-
-  // Create the counter. 
-  // For a freq of 50MHz a 19bit counter will create a time period
-  // to validate the button's stability of 50mil/2**19
-  always @(posedge clk_i, posedge rst_i) begin
-    if (rst_i) begin
-      counter <= 0;
-    end else if (clear_counter || counter_max) begin
-      counter <= 0;
-    end else begin
-      counter <= counter + 1'b1;
-    end
-  end
-
   assign counter_max = (counter == MaxVal);
+  
+  always @(*) begin
+    case ( {clear_counter, counter_max} )
+      2'b00 : counter_next = counter + 1'b1;
+      2'b01 : counter_next = counter;
+    default : counter_next = 0;
+    endcase
+  end
 
   // Create the output data logic
   always @(posedge clk_i, posedge rst_i) begin
@@ -58,9 +54,10 @@ module debouncer (
 
   assign db_level_o = ff_o;
   
-  reg tick_reg;
   
   // single tick circuit
+  reg tick_reg;
+  
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
       tick_reg <= 1'b0;

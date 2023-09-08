@@ -6,8 +6,9 @@
 module mod_m_counter #(
   parameter Width  = 4
 ) ( 
-  input  clk_i,
-  input  rst_i,
+  input              clk_i,
+  input              rst_i,
+  input              en_i,
   output [Width-1:0] cnt_o
 );
 
@@ -15,9 +16,9 @@ module mod_m_counter #(
   wire [Width-1:0] reg_d;
   
   always @(posedge clk_i, posedge rst_i) begin
-    if (rst_i)
+    if (rst_i) 
       reg_q <= 0;
-    else
+    else if (en_i)
       reg_q <= reg_d;
   end
   
