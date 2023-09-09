@@ -56,7 +56,9 @@ theme:
 
 # Plugins para search
 plugins:
-  - social
+  - social:
+      enabled: true
+      cards: true
   - search:
       lang: 
         - en
