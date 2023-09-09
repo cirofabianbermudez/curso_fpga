@@ -15,6 +15,8 @@ copyright: >-
 
 theme:
   name: material
+  icon:
+    logo: material/library
   features:
     - content.code.copy        # Añade el simbolo de copiar
     - content.code.annotate    # Permite añadir signo (+) en comentarios del código # (1)
@@ -54,7 +56,11 @@ theme:
 
 # Plugins para search
 plugins:
+  - social
   - search:
+      lang: 
+        - en
+        - es
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - glightbox
 
@@ -68,6 +74,14 @@ extra:
       link: https://twitter.com/CiroBermudez
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/ciro-fabian-bermudez-marquez-a93096227/
+# Cookie consent
+#  consent:
+#    title: Cookie consent
+#    description: >- 
+#      We use cookies to recognize your repeated visits and preferences, as well
+#      as to measure the effectiveness of our documentation and whether users
+#      find what they're searching for. With your consent, you're helping us to
+#      make our documentation better.
 # Google analitycs
   analytics:
     provider: google

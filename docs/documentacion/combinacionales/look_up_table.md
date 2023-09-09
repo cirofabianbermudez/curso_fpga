@@ -1,10 +1,12 @@
+---
+date: 2023-09-09
+tags: [combinacionales]
+title: Look Up Tables
+# description: Basic codes on how to use LUTs
+---
 # Look Up Tables
+
 ## 1. Códigos
-
-Descargar códigos
-
-
-[lut1.v](../../../codes/01_combinacionales/01_lut/lut1.v){:download}
 
 ### 1.1. Función booleana
 
@@ -36,6 +38,7 @@ $$
 
 </figure>
 
+[Download `lut1.v` :material-download:](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/01_combinacionales/01_lut/lut1.v){:target="_blank" .md-button }
 
 ``` verilog title="lut1.v" linenums="1"
 --8<-- "codes/01_combinacionales/01_lut/lut1.v:6"
@@ -82,6 +85,9 @@ También se les conoce como suma de productos o SOP (Sum Of Products).
 
 ## 2. Verificación
 ### 2.1. Testbench
+
+[Download `lut_tb.v` :material-download:](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/01_combinacionales/01_lut/lut_tb.v){:target="_blank" .md-button }
+
 ``` verilog title="lut_tb.v" linenums="1"
 --8<-- "codes/01_combinacionales/01_lut/lut_tb.v:6"
 ```
