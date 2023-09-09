@@ -1,11 +1,10 @@
 // Author: Guadalupe Alonso Contreras
 // Name: lut1_tb.v
-//Test Bench for a 7-Segment decoder: Estimulos combinacionales.
+//
+// Descrition: 7-Segment Decoder Active high
 
 `timescale 1ns / 100 ps
-`include "dec7seg.v"
-`include "dec7seg_v2.v"
-`include "dec7seg_v3.v"
+`include "hex_to_7seg.v"
 
 module dec7seg_tb();
   // Definicion de señales de entrada y salida
@@ -13,9 +12,7 @@ module dec7seg_tb();
   wire [6:0] leds;
 
   //Instanciacion del modulo
-  dec7seg dut(.binary(binary), .leds(leds));
-  //dec7seg_v2 dut(.binary(binary), .leds(leds));
-  //dec7seg_v3 dut(.binary(binary), .leds(leds));
+  hex_to_7seg dut(.binary(binary), .leds(leds));
 
   // Variables para archivo, iteraciones y tiempo
   integer write_data;

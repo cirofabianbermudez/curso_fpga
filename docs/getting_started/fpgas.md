@@ -11,11 +11,11 @@ Las FPGAs (Field Programmable Gate Arrays) son circuitos integrados que permiten
 
 En el mundo, existen cuatro destacadas compañías fabricantes de FPGAs: **AMD (Xilinx), Intel (Altera), Lattice** y **Microchip**. La cuota de mercado para el año 2021 se refleja en la siguiente gráfica:
 
-
 <figure markdown>
-  ![Image title](imagenes/01_graph.png){ width="700" }
+  ![Image title](../imagenes/01_graph.png){ width="700" }
   <figcaption><b>Figura 1.</b> Cuota de mercado de fabricantes de FPGA 2021.</figcaption>
 </figure>
+
 
 <span style="color:#df2128">AMD (Xilinx)</span> domina casi la mitad del mercado con una participación del 51%, seguida por <span style="color:#0068b5">Intel (Altera)</span>, que cuenta con el 29%, <span style="color:#ffc221">Lattice</span> con un 7%, <span style="color:#999999">Microchip</span> con un 6%. El 7% restante se reparten <span style="color:#de87cd">Otros</span> competidores. [^1]
 

@@ -1,6 +1,11 @@
 # Look Up Tables
 ## 1. Códigos
 
+Descargar códigos
+
+
+[lut1.v](../../../codes/01_combinacionales/01_lut/lut1.v){:download}
+
 ### 1.1. Función booleana
 
 $$
@@ -10,32 +15,40 @@ $$
 <figure markdown>
   <figcaption> <b>Tabla 1.</b> Tabla de verdad de función boolena.</figcaption>
 
-| Decimal | $A$  | $B$  | $C$  | $D$  | $f$  |
-| :-----: | :--: | :--: | :--: | :--: | :--: |
-|    0    |  0   |  0   |  0   |  0   |  0   |
-|    1    |  0   |  0   |  0   |  1   |  1   |
-|    2    |  0   |  0   |  1   |  0   |  1   |
-|    3    |  0   |  0   |  1   |  1   |  1   |
-|    4    |  0   |  1   |  0   |  0   |  1   |
-|    5    |  0   |  1   |  0   |  1   |  0   |
-|    6    |  0   |  1   |  1   |  0   |  1   |
-|    7    |  0   |  1   |  1   |  1   |  0   |
-|    8    |  1   |  0   |  0   |  0   |  0   |
-|    9    |  1   |  0   |  0   |  1   |  0   |
-|   10    |  1   |  0   |  1   |  0   |  0   |
-|   11    |  1   |  0   |  1   |  1   |  0   |
-|   12    |  1   |  1   |  0   |  0   |  1   |
-|   13    |  1   |  1   |  0   |  1   |  0   |
-|   14    |  1   |  1   |  1   |  0   |  0   |
-|   15    |  1   |  1   |  1   |  1   |  0   |
+| Decimal | $A$  | $B$  | $C$  | $D$  |  $f$  |
+| :-----: | :--: | :--: | :--: | :--: | :---: |
+|    0    |  0   |  0   |  0   |  0   |   0   |
+|    1    |  0   |  0   |  0   |  1   | **1** |
+|    2    |  0   |  0   |  1   |  0   | **1** |
+|    3    |  0   |  0   |  1   |  1   | **1** |
+|    4    |  0   |  1   |  0   |  0   | **1** |
+|    5    |  0   |  1   |  0   |  1   |   0   |
+|    6    |  0   |  1   |  1   |  0   | **1** |
+|    7    |  0   |  1   |  1   |  1   |   0   |
+|    8    |  1   |  0   |  0   |  0   |   0   |
+|    9    |  1   |  0   |  0   |  1   |   0   |
+|   10    |  1   |  0   |  1   |  0   |   0   |
+|   11    |  1   |  0   |  1   |  1   |   0   |
+|   12    |  1   |  1   |  0   |  0   | **1** |
+|   13    |  1   |  1   |  0   |  1   |   0   |
+|   14    |  1   |  1   |  1   |  0   |   0   |
+|   15    |  1   |  1   |  1   |  1   |   0   |
 
 </figure>
+
 
 ``` verilog title="lut1.v" linenums="1"
 --8<-- "codes/01_combinacionales/01_lut/lut1.v:6"
 ```
 
 ### 1.2. Diagrama esquemático
+
+<figure markdown>
+  ![Image title](../../imagenes/02_diagrama_lut.png){ width="700" }
+  <figcaption><b>Figura 2.</b> Diagrama esquemático de circuito combinacional.</figcaption>
+</figure>
+
+
 ``` verilog title="lut2.v" linenums="1"
 --8<-- "codes/01_combinacionales/01_lut/lut2.v:6"
 ```

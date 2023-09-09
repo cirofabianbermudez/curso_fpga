@@ -9,9 +9,7 @@ module piecewise_linear #(
   input                rst_i,
   input                clk_i,
   input              start_i,
-  output [Width-1:0]    xn_o,
-  output [Width-1:0]    yn_o,
-  output [Width-1:0]    zn_o
+  output [7:0]        rand_o
 );
 
   wire sel;
@@ -23,6 +21,8 @@ module piecewise_linear #(
   wire [Width-1:0] xn, yn, zn;
   wire [Width-1:0] x0_rom, y0_rom, z0_rom;
   wire [Width-1:0] xn_retro, yn_retro, zn_retro;
+  
+  wire [7:0] rand_aux;
   
   // cu
   cu fsm (.rst_i(rst_i), .clk_i(clk_i), .start_i(start_i), .en_o(en), .sel_o(sel) );
@@ -55,8 +55,19 @@ module piecewise_linear #(
   adder  #(.Width(Width)) add_3 (.a_i(zn), .b_i(m4), .sum_o(a3) );
   ff_hab #(.Width(Width)) reg_z (.rst_i(rst_i), .clk_i(clk_i), .en_i(en), .d_i(a3), .q_o(zn_retro) );
   
-  assign xn_o = xn_retro;
-  assign yn_o = yn_retro;
-  assign zn_o = zn_retro;
-
+  //assign xn_o = xn_retro;
+  //assign yn_o = yn_retro;
+  //assign zn_o = zn_retro;
+  
+  assign rand_aux[0] = xn_retro[0] ^  yn_retro[0] ^ zn_retro[0];
+  assign rand_aux[1] = xn_retro[1] ^  yn_retro[1] ^ zn_retro[1];
+  assign rand_aux[2] = xn_retro[2] ^  yn_retro[2] ^ zn_retro[2];
+  assign rand_aux[3] = xn_retro[3] ^  yn_retro[3] ^ zn_retro[3];
+  assign rand_aux[4] = xn_retro[4] ^  yn_retro[4] ^ zn_retro[4];
+  assign rand_aux[5] = xn_retro[5] ^  yn_retro[5] ^ zn_retro[5];
+  assign rand_aux[6] = xn_retro[6] ^  yn_retro[6] ^ zn_retro[6];
+  assign rand_aux[7] = xn_retro[7] ^  yn_retro[7] ^ zn_retro[7];
+  
+  assign rand_o = rand_aux;
+  
 endmodule
