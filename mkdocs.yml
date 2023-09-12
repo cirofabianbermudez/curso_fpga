@@ -26,7 +26,7 @@ theme:
     - navigation.indexes       # Habilitar index para carpetas
     - navigation.sections      # Despliega las secciones en negritas
     - navigation.tabs          # Cambia la navegacion por pestañas
-    - navigation.tabs.sticky   # Mantener las pestañas siempre
+#    - navigation.tabs.sticky   # Mantener las pestañas siempre
 #    - navigation.expand        # Expande las secciones, desactivar tabs
     - navigation.top           # Anade boton para subir rapido
     - navigation.tracking      # Modifica el URL dependiendo de la seccion
@@ -34,6 +34,8 @@ theme:
     - search.highlight         # Resaltar la palabra buscada
 #    - search.share            # Boton de compartir en busqueda
     - toc.follow               # Autoscroll table of contents
+    - navigation.path          # Muestra la path, para insiders
+#    - toc.integrate            # Las secciones las pones a la izquierda, aumenta espacio no compatible con navigation.indexes
 # Language configuration
   language: en
 # Color palette configuration
@@ -194,5 +196,3 @@ nav:
   - Proyectos: 
       - proyectos/index.md
       - RS232: proyectos/10_rs232/rs232.md
-  - Blog:
-      - blog/index.md

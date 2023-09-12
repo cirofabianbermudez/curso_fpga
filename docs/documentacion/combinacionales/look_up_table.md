@@ -1,8 +1,8 @@
 ---
 date: 2023-09-09
-tags: [combinacionales]
 title: Look Up Tables
 # description: Basic codes on how to use LUTs
+tags: [combinacionales]
 ---
 # Look Up Tables
 
@@ -37,6 +37,11 @@ $$
 |   15    |  1   |  1   |  1   |  1   |   0   |
 
 </figure>
+
+
+
+
+
 
 [Download `lut1.v` :material-download:](https://github.com/cirofabianbermudez/curso_fpga/blob/main/codes/01_combinacionales/01_lut/lut1.v){:target="_blank" .md-button }
 
