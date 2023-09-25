@@ -2,6 +2,7 @@
 // Name: mux.v
 //
 // Simple multiplexer 2 inputs 1 output
+
 module mux #(
   parameter Width = 32
 ) (
