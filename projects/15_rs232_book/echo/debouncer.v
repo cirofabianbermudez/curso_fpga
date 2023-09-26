@@ -25,8 +25,8 @@ module debouncer (
   // Run the button through two flip-flops to avoid metastability issues
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i) begin
-      ff_i <= 0;
-      counter <= 0;
+      ff_i <= 2'b00;
+      counter <= { Width {1'b0} };
     end else begin
       ff_i[1:0] <= {ff_i[0], sw_i};
       counter <= counter_next;
@@ -47,7 +47,7 @@ module debouncer (
   // Create the output data logic
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i) begin
-      ff_o <= 0;
+      ff_o <= 1'b0;
     end else if(counter_max) begin
       ff_o <= ff_i[1];
     end
