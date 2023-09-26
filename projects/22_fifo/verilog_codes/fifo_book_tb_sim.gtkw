@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Tue Sep 26 01:21:44 2023
+[*]
+[dumpfile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\22_fifo\verilog_codes\fifo_book_tb.vcd"
+[dumpfile_mtime] "Tue Sep 26 01:19:27 2023"
+[dumpfile_size] 3451
+[savefile] "C:\Users\Ciro\Desktop\github_projects\curso_fpga\projects\22_fifo\verilog_codes\fifo_book_tb_sim.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -1 -1
+*-16.184160 43900 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] fifo_book_tb.
+[sst_width] 211
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@28
+fifo_book_tb.clk
+fifo_book_tb.empty
+fifo_book_tb.full
+@22
+fifo_book_tb.r_data[7:0]
+@28
+fifo_book_tb.rd
+fifo_book_tb.rst
+@22
+fifo_book_tb.w_data[7:0]
+@28
+fifo_book_tb.wr
+fifo_book_tb.dut.r_ptr_reg[2:0]
+fifo_book_tb.dut.w_ptr_reg[2:0]
+[pattern_trace] 1
+[pattern_trace] 0
