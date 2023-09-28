@@ -7,6 +7,7 @@ module unic_cass (
   input        clk_i,
   input        rst_i,
   input        rx_i,
+  output        tx_o,
   output [7:0] dout_o
 );
 
@@ -44,6 +45,19 @@ module unic_cass (
     .clear_i(1'b0),
     .din_i(rx_data),
     .dout_o(dout_o)
+  );
+
+  transmitter #(
+  .Nbits(8),
+  .Sticks(16)
+  ) mod_transmitter ( 
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .stt_i(eor),
+    .tick_i(tick),
+    .din_i(rx_data),
+    .tx_o(tx_o),
+    .eot_o()
   );
 
 endmodule
