@@ -3,16 +3,14 @@
 //
 // Description: 
 
-module fsm_unic_cass (
-  input      rst_i,
-  input      clk_i,
-  input      start_i,
-  input      tick_i,
-  input      max_tick_i,
-  input      min_tick_i,
-  output reg en_clk_o,
-  output reg up_o,
-  output reg eos_o
+module fsm_unic_cass #(
+  parameter OpcodeBits = 2
+) (
+  input                  clk_i,
+  input                  rst_i,
+  input [OpcodeBits-1:0] opcode_i,
+  output reg             start_ramp_o,
+  output reg             start_sar_o
 );
 
   localparam [1:0] s0 = 2'b00,

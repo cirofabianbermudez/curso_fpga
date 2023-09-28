@@ -7,13 +7,17 @@ module unic_cass (
   input        clk_i,
   input        rst_i,
   input        rx_i,
-  output        tx_o,
-  output [7:0] dout_o
+  output       tx_o,
+  output [7:0] cnt_o,
+  output       time_o
 );
 
   wire tick;
   wire eor;
   wire [7:0] rx_data;
+  wire [7:0] cmd_buffer;
+  wire [1:0] cmd_decoded;
+  wire start_ramp;
 
   mod_n_counter #(
     .Width(6),
@@ -44,7 +48,12 @@ module unic_cass (
     .en_i(eor),
     .clear_i(1'b0),
     .din_i(rx_data),
-    .dout_o(dout_o)
+    .dout_o(cmd_buffer)
+  );
+
+  cmd_decoder mod_cmd_decoder( 
+    .buff_i(cmd_buffer),
+    .opcode_o(cmd_decoded)
   );
 
   transmitter #(
@@ -53,11 +62,32 @@ module unic_cass (
   ) mod_transmitter ( 
     .clk_i(clk_i),
     .rst_i(rst_i),
-    .stt_i(eor),
+    .stt_i(),
     .tick_i(tick),
-    .din_i(rx_data),
+    .din_i(),
     .tx_o(tx_o),
     .eot_o()
   );
+
+  ramp mod_ramp ( 
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .start_i(start_ramp),
+    .cnt_o(cnt_o),
+    .time_o(time_o),
+    .eos_o(eos_o)
+  );
+
+  fsm_unic_cass #(
+    .OpcodeBits(2)
+  ) mod_fsm_unic_cass (
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .opcode_i(cmd_decoded),
+    .start_ramp_o(start_ramp),
+    .start_sar_o()
+  );
+
+
 
 endmodule
