@@ -3,7 +3,9 @@
 //
 // Description:
 
-module unic_cass ( 
+module unic_cass #(
+  parameter Width = 10
+) ( 
   input        clk_i,
   input        rst_i,
   input        rx_i,
@@ -12,16 +14,17 @@ module unic_cass (
   output       time_o
 );
 
-  wire tick;
-  wire eor;
+  wire       tick;
+  wire       eor;
+  wire       eot
   wire [7:0] rx_data;
   wire [7:0] cmd_buffer;
-  wire [1:0] cmd_decoded;
-  wire start_ramp;
+  //wire [1:0] cmd_decoded;
+  wire       start_ramp;
 
   mod_n_counter #(
     .Width(6),
-    .MaxVal(54) // (100 * 10**(6)) / (115200 * 16)
+    .MaxVal(54)     // (100 * 10**(6)) / (115200 * 16)
   ) mod_mod_n_counter ( 
    .clk_i(clk_i),
    .rst_i(rst_i),
@@ -51,14 +54,14 @@ module unic_cass (
     .dout_o(cmd_buffer)
   );
 
-  cmd_decoder mod_cmd_decoder( 
-    .buff_i(cmd_buffer),
-    .opcode_o(cmd_decoded)
-  );
+  //cmd_decoder mod_cmd_decoder( 
+  //  .buff_i(cmd_buffer),
+  //  .opcode_o(cmd_decoded)
+  //);
 
   transmitter #(
-  .Nbits(8),
-  .Sticks(16)
+    .Nbits(8),
+    .Sticks(16)
   ) mod_transmitter ( 
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -69,12 +72,16 @@ module unic_cass (
     .eot_o()
   );
 
-  ramp mod_ramp ( 
+  ramp #(
+    .Width(10)
+  ) mod_ramp ( 
     .clk_i(clk_i),
     .rst_i(rst_i),
     .start_i(start_ramp),
     .cnt_o(cnt_o),
     .time_o(time_o),
+    .time_10ms_o(),
+    .time_1ms_o(),
     .eos_o(eos_o)
   );
 
@@ -88,6 +95,16 @@ module unic_cass (
     .start_sar_o()
   );
 
-
-
+  fsm_sar #(
+    .Width(10)
+  ) (
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .start_i(start_sar),
+    .cmp_i(cmp_i),
+    .result_o(),
+    .dac_o(),
+    .sample_o(),
+    .eoc_o()
+  );
 endmodule

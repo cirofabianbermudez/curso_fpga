@@ -1,7 +1,7 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: .v
 //
-// Description: 
+// Description:
 
 module fsm_ramp (
   input      rst_i,
@@ -15,13 +15,13 @@ module fsm_ramp (
   output reg eos_o
 );
 
-  localparam [1:0] s0 = 2'b00,
-                   s1 = 2'b01,
-                   s2 = 2'b10,
-                   s3 = 2'b11;
-		
+  localparam [1:0] s0 = 2'b00, // Esperar
+                   s1 = 2'b01, // Sincronizacion
+                   s2 = 2'b10, // Incrementar
+                   s3 = 2'b11; // Decrementar
+
   reg [1:0] state_reg, state_next;
-	
+
   always @(*) begin
     state_next = state_reg; 
     en_clk_o = 1'b1;
@@ -67,6 +67,6 @@ module fsm_ramp (
     end else begin
       state_reg <= state_next;
     end
-  end	
-  
+  end
+
 endmodule

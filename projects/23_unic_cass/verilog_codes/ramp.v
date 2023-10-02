@@ -3,25 +3,40 @@
 //
 // Description:
 
-module ramp ( 
-  input        clk_i,
-  input        rst_i,
-  input        start_i,
-  output [7:0] cnt_o,
-  output       time_o,
-  output       eos_o
+module ramp #(
+  parameter Width = 10
+) ( 
+  input              clk_i,
+  input              rst_i,
+  input              start_i,
+  output [Width-1:0] cnt_o,
+  output             time_o,
+  output             tick_10ms_o,
+  output             tick_1ms_o,
+  output             eos_o
 );
-  
+
   wire tick;
   wire fsm_en;
   wire fsm_up;
   wire max;
   wire min;
   
+  assign tick_10ms_o = tick;
+
+  mod_n_counter #(            // MaxVal = FPGA_freq * Tiempo      
+    .Width(17),               // 5      26             17
+    .MaxVal(100_000)          // 20     10_000_000     100_000     100
+  ) mod_mod_n_counter_1ms (
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .max_tick_o(tick_1ms_o)
+  ); 
+  
   mod_n_counter #(
-    .Width(26),             // 5
-    .MaxVal(10_000_000)     // 20
-  ) mod_mod_n_counter (
+    .Width(20),               //                       20
+    .MaxVal(1_000_000)        //                       1_000_000   1_000
+  ) mod_mod_n_counter_10ms (
     .clk_i(clk_i),
     .rst_i(rst_i),
     .max_tick_o(tick)
@@ -35,7 +50,7 @@ module ramp (
   );
   
   univ_counter #(
-    .Width(8)
+    .Width(Width)
   ) mod_univ_counter (
     .clk_i(clk_i),
     .rst_i(rst_i),

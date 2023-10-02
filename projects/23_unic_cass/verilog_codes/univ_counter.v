@@ -1,11 +1,11 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: .v
 //
-// Description: 
+// Description:
 
 module univ_counter #(
   parameter Width  = 3
-) ( 
+) (
   input              clk_i,
   input              rst_i,
   input              en_i,
@@ -19,11 +19,11 @@ module univ_counter #(
 
   always @(posedge clk_i, posedge rst_i) begin
     if (rst_i)
-      reg_q <= 0;
+      reg_q <= { Width {1'b0} };
     else
       reg_q <= reg_d;
   end
-  
+
   always @(*) begin
     if (en_i & up_i)
       reg_d = reg_q + 1;
@@ -32,9 +32,9 @@ module univ_counter #(
     else
       reg_d = reg_q;
   end
-  
+
   assign cnt_o = reg_q;
   assign max_tick_o = (reg_q == (2**Width-1)) ? 1'b1 : 1'b0;
   assign min_tick_o = (reg_q == 0) ? 1'b1 : 1'b0; 
-  
+
 endmodule
