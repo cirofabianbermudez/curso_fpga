@@ -1,7 +1,7 @@
 // Author: Ciro Fabian Bermudez Marquez
 // Name: .v
 //
-// Description: 
+// Description:
 
 module fsm_unic_cass #(
   parameter Width = 8
@@ -21,16 +21,17 @@ module fsm_unic_cass #(
   output reg             clear_buffer_o
 );
 
-  localparam [2:0] s0 = 3'd0,
-                   s1 = 3'd1,
-                   s2 = 3'd2,
-                   s3 = 3'd3,
-                   s4 = 3'd4,
-                   s5 = 3'd5,
-                   s6 = 3'd6,
-                   s7 = 3'd7;
+  localparam [3:0] s0 = 4'd0,
+                   s1 = 4'd1,
+                   s2 = 4'd2,
+                   s3 = 4'd3,
+                   s4 = 4'd4,
+                   s5 = 4'd5,
+                   s6 = 4'd6,
+                   s7 = 4'd7,
+                   s8 = 4'd8;
 		
-  reg [2:0] state_reg, state_next;
+  reg [3:0] state_reg, state_next;
 	
   always @(*) begin
     state_next = state_reg;
@@ -44,48 +45,48 @@ module fsm_unic_cass #(
               state_next = s1;
             end 
           end
-      s1: begin // CMD decode and Start
+      s1: begin // CMD decode
             if (cmd_buffer_i == 8'h01) begin
               state_next = s2;
-              start_ramp_o = 1'b1;
             end else begin
-              clear_buffer_o = 1'b1;
               state_next = s0;
             end
           end
-      s2: begin // Sync and activate SAR
+      s2: begin // Activate Ramp
+            start_ramp_o = 1'b1;
+            state_next = s3;
+          end
+      s3: begin // Sync with tick_10ms
              if (tick_10ms_i) begin
-               start_sar_o = 1'b1;
-               state_next = s3;
+               state_next = s4;
              end
           end
-      s3: begin // Wait SAR
+      s4: begin // Activate SAR
+            start_sar_o = 1'b1;
+            state_next = s5;
+          end
+      s5: begin // Wait SAR
             if (eosar_i) begin
-              start_tx_o = 1'b1;
-              state_next = s4;
-            end
+              state_next = s6;
+            end     
           end
-      s4: begin // Wait tx
-            if (eot_i) begin
-               if (eoramp_i) begin
-                 state_next = s6;
-               end else begin
-                 state_next = s5;
-               end
-            end
-          end
-      s5: begin // Wait for 1ms signal
-            if (tick_1ms_i) begin
-              start_sar_o = 1'b1;
-              state_next = s3;
-            end
-          end
-      s6: begin // Clear buffer
+      s6: begin // Activate tx
+            start_tx_o = 1'b1;
             state_next = s7;
-            clear_buffer_o = 1'b1;
           end
-      s7: begin // Dummy state
-            state_next = s0;
+      s7: begin // Wait tx
+            if (eot_i) begin
+              if (eoramp_i) begin
+                state_next = s0;
+              end else begin
+                state_next = s8;
+              end
+            end
+          end
+      s8: begin // Sync with tick_1ms
+             if (tick_1ms_i) begin
+               state_next = s4;
+             end
           end
     endcase
   end

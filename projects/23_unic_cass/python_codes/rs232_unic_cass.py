@@ -8,6 +8,7 @@ import sys
 try:
     import serial
     import numpy as np
+    import pandas as pd
 except ImportError:
     print('This program uses the Python pip package "pyserial"')
     print('Run following command to install it:')
@@ -26,8 +27,8 @@ if __name__ == '__main__':
             bytesize      = serial.EIGHTBITS,
             parity        = serial.PARITY_NONE,
             stopbits      = serial.STOPBITS_ONE, 
-            timeout       = 10,
-            write_timeout = 10
+            timeout       = 2,
+            write_timeout = 2
         )
     except serial.SerialException:
         print(f">> Port {port_name} is busy, please close the port and try again.")
@@ -59,11 +60,29 @@ if __name__ == '__main__':
             print(f">> Command {cmd_hex}: START SYSTEM.")
             break
     
-    if (cmd_int == 1): 
-        for i in range(250):
-            data = fpga.read(size = 1)
-        #data_uint8 = np.frombuffer(data, dtype = np.uint8)
-        #print(data_uint8)
+    count = 0
+    x = np.arange(1,20462+1)
+    y = np.zeros(20462, dtype=np.uint8)
+    if (cmd_int == 1):
+      while True:
+        data = fpga.read(size = 1)
+        data_int = int.from_bytes(data)
+        y[count] = data_int
+        if (data == b''):
+            print(">> Timeout, data not received.")
+            break
+        else:
+            count = count + 1
+
+    print(count)
+    #data_uint8 = np.frombuffer(data, dtype = np.uint8)
+    #print(np.shape(data_uint8))
+    #x = np.arange(1,20461+1)
+    
+    # Export to csv
+    filename = "data.csv"
+    df = pd.DataFrame({'Items': x, 'Voltage': y})
+    df.to_csv(filename, index = False, header = False)
 
     fpga.close()
     print(f">> Port {port_name} is closed.")
