@@ -10,7 +10,7 @@ try:
 except ImportError:
     print('This program uses the Python pip package "pyserial"')
     print('Run following command to install it:')
-    print('pip install  pyserial')
+    print('pip install pyserial')
     sys.exit()
 
 if __name__ == '__main__':

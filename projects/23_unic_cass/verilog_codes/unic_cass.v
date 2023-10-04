@@ -109,7 +109,7 @@ module unic_cass #(
 
   fsm_sar #(
     .Width(10)
-  ) (
+  ) mod_fsm_sar (
     .clk_i(clk_i),
     .rst_i(rst_i),
     .start_i(start_sar),
