@@ -14,7 +14,9 @@ module unic_cass #(
   output [Width-1:0] cnt_o,
   output             time_o,
   output [Width-1:0] dac_o,
-  output             sample_o
+  output             sample_o,
+  // Just for testing
+  output             rnd_o
 );
 
   // Baudrate signals
@@ -136,6 +138,17 @@ module unic_cass #(
     .start_ramp_o(start_ramp),
     .start_sar_o(start_sar),
     .clear_buffer_o(clear_buffer)
+  );
+  
+  // Just for testing
+  lfsr #(
+    .Width(5)
+   ) dut (
+    .clk_i(clk_i),
+    .rst_i(rst_i),
+    .en_i(1'b1),
+    .q_o(),
+    .rnd_o(rnd_o)
   );
 
 endmodule
