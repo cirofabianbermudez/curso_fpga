@@ -43,9 +43,6 @@ module unic_cass #(
   wire             eosar;
   wire [Width-1:0] adc_result;
 
-  // Buffer signals
-  wire             clear_buffer;
-
   mod_n_counter #(
     .Width(6),
     .MaxVal(54)     // (100 * 10**(6)) / (115200 * 16)
@@ -73,15 +70,10 @@ module unic_cass #(
     .rst_i(rst_i),
     .clk_i(clk_i),
     .en_i(eor),
-    .clear_i(clear_buffer),
+    .clear_i(1'b0),
     .din_i(rx_data),
     .dout_o(cmd_buffer)
   );
-
-  //cmd_decoder mod_cmd_decoder( 
-  //  .buff_i(cmd_buffer),
-  //  .opcode_o(cmd_decoded)
-  //);
 
   transmitter #(
     .Nbits(8),
@@ -136,8 +128,7 @@ module unic_cass #(
     .tick_1ms_i(tick_1ms),
     .start_tx_o(start_tx),
     .start_ramp_o(start_ramp),
-    .start_sar_o(start_sar),
-    .clear_buffer_o(clear_buffer)
+    .start_sar_o(start_sar)
   );
   
   // Just for testing

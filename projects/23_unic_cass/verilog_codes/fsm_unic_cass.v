@@ -17,8 +17,7 @@ module fsm_unic_cass #(
   input                  tick_1ms_i,
   output reg             start_tx_o,
   output reg             start_ramp_o,
-  output reg             start_sar_o,
-  output reg             clear_buffer_o
+  output reg             start_sar_o
 );
 
   localparam [3:0] s0 = 4'd0,
@@ -38,7 +37,6 @@ module fsm_unic_cass #(
     start_tx_o     = 1'b0;
     start_ramp_o   = 1'b0;
     start_sar_o    = 1'b0;
-    clear_buffer_o = 1'b0;
     case (state_reg)
       s0: begin // Idle
             if (eor_i) begin
