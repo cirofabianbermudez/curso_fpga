@@ -2,16 +2,24 @@
 
 Este es un resumen de fundamentos básicos de Verilog extraído de los libros [^1] [^2] [^3].
 
-## 1. Comentarios
-- Los comentarios cortos empiezan con `//` y continúan hasta el final de la línea.
-- Los comentarios largos empiezan con `/*` y terminan con `*/`.
+## 1. Elementos léxicos
+
+### 1.1. Lenguage sensible a mayúsculas y minúsculas
+Verilog es un lenguaje que distingue entre mayúsculas y minúsculas. Así que, `data-bus`, `Data-bus` y `DATAEUS` se refieren a tres objetos diferentes.
+
+### 1.2. Comentarios
+Los comentarios cortos empiezan con `//` y continúan hasta el final de la línea. Los comentarios largos empiezan con `/*` y terminan con `*/`.
+
+### 1.3. Espacios en blanco
+Los espacios en blanco incluyen los caracteres espacio, tabulador y nueva línea, se utilizan para separar identificadores y pueden utilizarse libremente en el código Verilog. Podemos utilizar espacios en blanco adecuados para dar formato al código y hacerlo más legible.
+
 
 ## 2. Tipos de datos
 
 ### 2.1. Sistema de cuatro valores
-En la mayoría de los tipos de datos se utilizan cuatro valores básicos:
+En la mayoría de los casos se utilizan cuatro valores básicos:
 <figure markdown>
-  <figcaption> <b>Tabla 1.</b> Conjunto de valores .</figcaption>
+  <figcaption> <b>Tabla 1.</b> Conjunto de valores.</figcaption>
 
 |  Valor    |    Descripción        |
 | ---- | -------------------------- |
@@ -24,25 +32,30 @@ En la mayoría de los tipos de datos se utilizan cuatro valores básicos:
 
 ### 2.2. Grupos de tipos de datos
 
-Verilog tiene dos grupos principales de tipos de datos: `net` y `variable`. 
+Verilog tiene dos grupos principales de tipos de datos: *net* y *variable*.
 
-- Grupo `net`
-:    Los tipos de datos del grupo de `net` representan las conexiones físicas entre componentes de hardware. Se utilizan como salidas de asignaciones continuas (_continuous assignments_) y como señales de conexión entre distintos módulos. El tipo de datos más utilizado en este grupo es `wire`. Como su nombre indica, representa un cable de conexión.
-El tipo de datos `wire` representa una señal de 1 bit, como:
+**Grupo net**:  Los tipos de datos del grupo de *net* representan las conexiones físicas entre componentes de hardware. Se utilizan como salidas de asignaciones continuas (_continuous assignments_) y como señales de conexión entre distintos módulos. El tipo de datos más utilizado en este grupo es **wire**. Como su nombre indica, representa un cable de conexión.
+
+El tipo de datos **wire** representa una señal de 1 bit, como:
+
 ``` verilog linenums="1"
 wire po, p1; // dos señales de 1 bit
 ```
-Cuando una colección de señales se agrupa en un bus, podemos representarla mediante una arreglo unidimensional (vector), como:
+Cuando una colección de señales se agrupa en un bus, podemos representarlo mediante una arreglo unidimensional (vector), como:
 ``` verilog linenums="1"
 wire [7:0]  datal, data2; // bus de 8 bits
 wire [31:0] addr;         // direccion de 32 bits
+wire [0:7] addr;          // orden ascendete debe evitarse
 ```
+Aunque el rango del índice puede ser descendente (como en `[7:0]` ) o ascendente (como en `[0:7]` ), se prefiere el primero ya que la posición más a la izquierda (es decir, 7) corresponde al MSB de un número binario.
+
 A veces se necesita una matriz bidimensional para representar una memoria. Por ejemplo, una memoria de 32 por 4 (es decir, una memoria tiene 32 palabras y cada palabra tiene 4 bits de ancho) puede representarse como:
+
 ``` verilog linenums="1"
 wire [3:0] mem1 [31:0];   // memoria de 32 por 4
 ```
-- Grupo `variable`
-:    Los tipos de datos del grupo `variable` representan el almacenamiento abstracto en el modelado de comportamiento (_behavioral modeling_) y se utilizan en las salidas de las asignaciones de procedimiento (_procedural assignments_). Hay cinco tipos de datos en este grupo: `reg`, `integer`, `real`, `time` y `realtime`. El tipo de datos más utilizado en este grupo es `reg` y puede sintetizarse. El circuito inferido puede contener o no componentes físicos de almacenamiento. Los tres últimos tipos de datos sólo pueden utilizarse en modelado y simulación. 
+
+**Grupo variable**: Los tipos de datos del grupo variable representan el almacenamiento abstracto en el modelado de comportamiento (_behavioral modeling_) y se utilizan en las salidas de las asignaciones de procedimiento (_procedural assignments_). Hay cinco tipos de datos en este grupo: `reg`, `integer`, `real`, `time` y `realtime`. El tipo de datos más utilizado en este grupo es `reg` y puede sintetizarse. El circuito inferido puede contener o no componentes físicos de almacenamiento. Los tres últimos tipos de datos sólo pueden utilizarse en modelado y simulación. 
 
 ### 2.3. Representación numérica
 Una constante entera en Verilog puede representarse en varios formatos. Su forma general es:
@@ -50,10 +63,12 @@ Una constante entera en Verilog puede representarse en varios formatos. Su forma
 [sign][size]'[base][value]
 ```
 
-- El término `[base]` especifica la base del número, que pueden ser los siguientes:
+El término `[size]` especifica el número de bits de un número. Es opcional. El número se conoce como número dimensionado (_sized number_) cuando existe un término `[size]` y como número no dimensionado (_unsized number_) en caso contrario. 
+
+El término `[base]` especifica la base del número, que pueden ser los siguientes:
 
 <figure markdown>
-  <figcaption> <b>Tabla 2.</b> Diferentes bases .</figcaption>
+  <figcaption> <b>Tabla 2.</b> Diferentes bases.</figcaption>
 
 |  Base    | Descripción |
 | ---- | --------------- |
@@ -64,31 +79,25 @@ Una constante entera en Verilog puede representarse en varios formatos. Su forma
 
 </figure>
 
-- El término `[value]` especifica el valor del número en la base correspondiente. Puede incluirse el carácter de guión bajo `_` para mayor claridad.
+El término `[value]` especifica el valor del número en la base correspondiente. Puede incluirse el carácter de guión bajo `_` para mayor claridad.
 
-- El término `[size]` especifica el número de bits de un número. Es opcional. El número se conoce como número dimensionado (_sized number_) cuando existe un término `[size]` y como número no dimensionado en caso contrario. 
+**Sized number**: Un número con tamaño especificado describe explícitamente el número de bits. Si el tamaño del valor es menor que el término `[size]` especificado, se rellenan ceros delante para extender el número, excepto en varios casos especiales. El valor `z` o `x` se rellena si el MSB del valor es `z` o `x`, y se rellena con el MSB si se utiliza el tipo de datos con signo (`signed`).
 
-**Número con tamaño especificado (Sized number)**
-:    Un número con tamaño especificado describe explícitamente el número de bits. Si el tamaño del valor es menor que el término `[size]` especificado, se rellenan ceros delante para extender el número. excepto en varios casos especiales. El valor `z` o `x` se rellena si el MSB del valor es `z` o `x`, y el MSB se rellena si se utiliza el tipo de datos con signo `signed`;
-
-**Número sin tamaño especificado (Unsized number)**
-:    Un número sin tamaño  especificado omite el término `[size]`. Su tamaño real depende del ordenador anfitrión, pero debe ser de al menos 32 bits. El término `'[base]` también puede omitirse si el número está en formato decimal. 
-
-Ejemplos:
+**Unsized number**: Un número sin tamaño  especificado omite el término `[size]`. Su tamaño real depende del ordenador anfitrión, pero debe ser de al menos 32 bits. El término `'[base]` también puede omitirse si el número está en formato decimal. 
 
 <figure markdown>
-  <figcaption> <b>Tabla 3.</b> Ejemplos de números con tamaño especificado y sin especificar.</figcaption>
+  <figcaption> <b>Tabla 3.</b> Ejemplos de sized numbers y unsized numbers.</figcaption>
 
 | Número     | 	Valor almacenado   | Comentarios	|
 | ---- | --------------------------- | ---- |
-| 8'b10101010   | 10101010          | 	                |
-| 8'b1010_1010  | 10101010          | Se ignora el `_` 	|
-| 8'o5          | 00000101            | 	                |
+| 8'b00000111   | 00000111          | 	                |
+| 8'b0000_0111  | 10101010          | Se ignora el `_` 	|
+| 8'o5          | 00000101          | 	                |
 | 8'h5f         | 01011111          |                  	|
 | 8'd8          | 00001000          | 	        |
 | 8'b0          | 00000000          | 0 extendido    	|
 | 8'b1          | 00000001          | 1 extendido    	|
-| -8'b00000001  | 11111111      | Complemento 2 de  00000001  |
+| -8'b00000001  | 11111111          | Complemento 2 de 00000001  |
 | 1             | 000...001         | Extendido a 32 bits         	|
 | -1             | 111...111        | Extendido a 32 bits         	|
 
@@ -97,7 +106,7 @@ Ejemplos:
 
 ## 3. Esqueleto del programa
 
-Como su nombre indica, el HDL se utiliza para describir hardware. Cuando desarrollamos o examinamos un código Verilog, es mucho más fácil de comprender si pensamos en términos de "organización de hardware" en lugar de "algoritmo secuencial". La mayoría de los códigos Verilog siguen un  esqueleto básico que consta de tres partes:
+Como su nombre indica, el HDL se utiliza para describir hardware. Cuando desarrollamos o examinamos un código Verilog, es mucho más fácil de comprender si pensamos en términos de "organización de hardware" en lugar de "algoritmo secuencial". La mayoría de los códigos Verilog siguen un esqueleto básico que consta de tres partes:
 
 1. Declaración de puertos I/O.
 2. Declaración de señales.

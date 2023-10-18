@@ -19,22 +19,32 @@ if __name__ == '__main__':
     
     # RS232 conter values
     maxval = fpga_freq/(rs232_freq*oversampling)
-    print(f" BaudRate MaxVal = {maxval:10.2f} = {round( maxval ):10d}")
+    print(f" BaudRate MaxVal = {maxval:15.2f} = {round( maxval ):15d}")
     nbits = math.log2(maxval)
-    print(f" BaudRate nbits  = {nbits:10.2f} = {math.ceil( nbits ):10d}")
+    print(f" BaudRate nbits  = {nbits:15.2f} = {math.ceil( nbits ):15d}")
     
     # 10 ms conter values
     txt_string = "10 ms"
     time = 10e-3
     maxval = fpga_freq * time
-    print(f" MaxVal {txt_string}    = {maxval:10.2f} = {round( maxval ):10d}")
+    print(f" MaxVal {txt_string}    = {maxval:15.2f} = {round( maxval ):15d}")
     nbits = math.log2(maxval)
-    print(f" nbits  {txt_string}    = {nbits:10.2f} = {math.ceil( nbits ):10d}")
+    print(f" nbits  {txt_string}    = {nbits:15.2f} = {math.ceil( nbits ):15d}")
     
     # 10 ms conter values
     txt_string = "1 ms"
     time = 1e-3
     maxval = fpga_freq * time
-    print(f" MaxVal {txt_string}     = {maxval:10.2f} = {round( maxval ):10d}")
+    print(f" MaxVal {txt_string}     = {maxval:15.2f} = {round( maxval ):15d}")
     nbits = math.log2(maxval)
-    print(f" nbits  {txt_string}     = {nbits:10.2f} = {math.ceil( nbits ):10d}")
+    print(f" nbits  {txt_string}     = {nbits:15.2f} = {math.ceil( nbits ):15d}")
+    
+    
+    # 10 MHz conter values
+    fpga_freq = 100_000_000
+    txt_string = "10 MHz"
+    time = 1/(10e6)
+    maxval = fpga_freq * time / 2
+    print(f" MaxVal {txt_string}   = {maxval:15.2f} = {round( maxval ):15d}")
+    nbits = math.log2(maxval)
+    print(f" nbits  {txt_string}   = {nbits:15.2f} = {math.ceil( nbits ):15d}")

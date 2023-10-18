@@ -25,8 +25,8 @@ module ramp #(
   assign tick_10ms_o = tick;
 
   mod_n_counter #(            // MaxVal = FPGA_freq * Tiempo      
-    .Width(17),               // 5      26             17
-    .MaxVal(100_000)          // 20     10_000_000     100_000     100
+    .Width(14),               // 5      26             17
+    .MaxVal(10_000)          // 20     10_000_000     100_000     100
   ) mod_mod_n_counter_1ms (
     .clk_i(clk_i),
     .rst_i(rst_i),
@@ -34,8 +34,8 @@ module ramp #(
   ); 
   
   mod_n_counter #(
-    .Width(20),               //                       20
-    .MaxVal(1_000_000)        //                       1_000_000   1_000
+    .Width(17),               //                       20
+    .MaxVal(100_000)        //                       1_000_000   1_000
   ) mod_mod_n_counter_10ms (
     .clk_i(clk_i),
     .rst_i(rst_i),

@@ -42,12 +42,15 @@ module unic_cass #(
   wire             start_sar;
   wire             eosar;
   wire [Width-1:0] adc_result;
+  
+  // Just for testing
+  wire clk_slow;
 
   mod_n_counter #(
-    .Width(6),
-    .MaxVal(54)     // (100 * 10**(6)) / (115200 * 16)
+    .Width(3),
+    .MaxVal(5)     // (100 * 10**(6)) / (115200 * 16)
   ) mod_mod_n_counter ( 
-   .clk_i(clk_i),
+   .clk_i(clk_slow),
    .rst_i(rst_i),
    .max_tick_o(tick)
   );
@@ -56,7 +59,7 @@ module unic_cass #(
     .Nbits(8),
     .Sticks(16)
   ) mod_receiver ( 
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .rx_i(rx_i),
     .tick_i(tick),
@@ -68,7 +71,7 @@ module unic_cass #(
     .Width(8)
   ) mod_ff_buffer ( 
     .rst_i(rst_i),
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .en_i(eor),
     .clear_i(1'b0),
     .din_i(rx_data),
@@ -79,7 +82,7 @@ module unic_cass #(
     .Nbits(8),
     .Sticks(16)
   ) mod_transmitter ( 
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .stt_i(start_tx),
     .tick_i(tick),
@@ -91,7 +94,7 @@ module unic_cass #(
   ramp #(
     .Width(Width)
   ) mod_ramp ( 
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .start_i(start_ramp),
     .cnt_o(cnt_o),
@@ -104,7 +107,7 @@ module unic_cass #(
   fsm_sar #(
     .Width(10)
   ) mod_fsm_sar (
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .start_i(start_sar),
     .cmp_i(cmp_i),
@@ -117,7 +120,7 @@ module unic_cass #(
   fsm_unic_cass #(
     .Width(8)
   ) mod_fsm_unic_cass (
-    .clk_i(clk_i),
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .cmd_buffer_i(cmd_buffer),
     .eor_i(eor),
@@ -134,12 +137,21 @@ module unic_cass #(
   // Just for testing
   lfsr #(
     .Width(5)
-   ) dut (
-    .clk_i(clk_i),
+   ) lfsr_mod (
+    .clk_i(clk_slow),
     .rst_i(rst_i),
     .en_i(1'b1),
     .q_o(),
     .rnd_o(rnd_o)
+  );
+  
+  clk_div #(
+    .Width(3),
+    .MaxVal(5)   
+  ) clk_div_mod ( 
+   .clk_i(clk_i),
+   .rst_i(rst_i),
+   .square_o(clk_slow)
   );
 
 endmodule
