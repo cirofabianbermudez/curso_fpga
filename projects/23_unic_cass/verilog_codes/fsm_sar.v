@@ -80,7 +80,7 @@ module fsm_sar #(
     if (rst_i) begin
       result_o <= { Width {1'b0} };
     end else if (enable) begin
-      result_o <= res_reg;
+      result_o <= ~res_reg;
     end
   end
   
